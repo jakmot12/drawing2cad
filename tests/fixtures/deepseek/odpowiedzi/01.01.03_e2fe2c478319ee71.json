@@ -1,0 +1,210 @@
+{
+  "drawing_no": "01.01.03",
+  "name": "Dźwignia",
+  "part_type": "plaska",
+  "operations": [
+    {
+      "op": "plyta_z_profilu",
+      "plane": "XY",
+      "thickness": 6.0,
+      "centered_extrude": false,
+      "shapes": [
+        {
+          "kind": "circle",
+          "cx": 0.0,
+          "cy": 0.0,
+          "radius": 10.0
+        },
+        {
+          "kind": "rect",
+          "cx": 50.0,
+          "cy": 0.0,
+          "width": 100.0,
+          "height": 15.0
+        }
+      ]
+    },
+    {
+      "op": "zaokraglenie_krawedzi",
+      "radius": 6.0,
+      "selector": "near_points",
+      "axis": "Z",
+      "points": [
+        [
+          6.61,
+          7.5
+        ],
+        [
+          6.61,
+          -7.5
+        ],
+        [
+          100.0,
+          7.5
+        ],
+        [
+          100.0,
+          -7.5
+        ]
+      ],
+      "face_selector": null,
+      "tolerance": 0.9
+    },
+    {
+      "op": "zaokraglenie_krawedzi",
+      "radius": 1.0,
+      "selector": "face_edges",
+      "axis": "Z",
+      "points": [],
+      "face_selector": ">Z or <Z",
+      "tolerance": 0.75
+    },
+    {
+      "op": "otwor_kwadratowy",
+      "plane": "XY",
+      "size": 7.0,
+      "corner_radius": 1.0,
+      "positions": [
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "depth": null
+    }
+  ],
+  "dimension_bindings": [
+    {
+      "dim_id": "D1",
+      "target": "promien",
+      "expected_value": 10.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Promień łba R10 - okrąg w profilu płyty (środek łba w początku układu, Ø20)."
+    },
+    {
+      "dim_id": "D2",
+      "target": "promien",
+      "expected_value": 6.0,
+      "secondary_value": null,
+      "multiplicity": 2,
+      "thread_spec": null,
+      "description": "Promień R6 wklęsłego przejścia łba w trzon (zaokrąglenie krawędzi pionowych w miejscu przecięcia okręgu R10 z linią y=±7.5), symetrycznie góra/dół."
+    },
+    {
+      "dim_id": "D3",
+      "target": "promien",
+      "expected_value": 6.0,
+      "secondary_value": null,
+      "multiplicity": 2,
+      "thread_spec": null,
+      "description": "Promień R6 naroży prawego końca płyty (x=100, y=±7.5), symetrycznie góra/dół."
+    },
+    {
+      "dim_id": "D4",
+      "target": "kwadrat",
+      "expected_value": 7.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Bok otworu kwadratowego 7x7 wyciętego w łbie, wyśrodkowanego w osi łba (0,0)."
+    },
+    {
+      "dim_id": "D5",
+      "target": "dlugosc_odcinka",
+      "expected_value": 15.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Szerokość (wysokość w Y) trzonu płyty = 15 mm, stała na całej długości trzonu."
+    },
+    {
+      "dim_id": "D6",
+      "target": "promien",
+      "expected_value": 1.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Promień naroży otworu kwadratowego □7 (corner_radius=1)."
+    },
+    {
+      "dim_id": "D7",
+      "target": "dlugosc_odcinka",
+      "expected_value": 100.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Odległość od osi łba (środka otworu kwadratowego, x=0) do prawego końca płyty (x=100); długość całkowita = 100 + R10 = 110."
+    },
+    {
+      "dim_id": "D8",
+      "target": "promien",
+      "expected_value": 1.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Promień R1 zaokrąglenia krawędzi obrysu płyty (górnej i dolnej powierzchni) - zaokrąglenie krawędzi ścian >Z i <Z."
+    },
+    {
+      "dim_id": "D9",
+      "target": "grubosc",
+      "expected_value": 6.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Grubość płyty 6 mm (wyciągnięcie profilu od z=0 do z=6)."
+    }
+  ],
+  "threads": [],
+  "ambiguities": [
+    {
+      "id": "A1",
+      "description": "Oznaczenia R6 (D2) i R6 (D3) są pokazane tylko po jednej stronie osi płyty, brak drugiego oznaczenia dla dolnej krawędzi.",
+      "assumption": "Zaokrąglenia R6 zastosowano symetrycznie po obu stronach osi: dwa wklęsłe przejścia łba w trzon oraz dwa naroża prawego końca.",
+      "severity": "info",
+      "affected_dimensions": [
+        "D2",
+        "D3"
+      ]
+    },
+    {
+      "id": "A2",
+      "description": "Kwadrat □7 w łbie może być otworem kwadratowym lub czopem kwadratowym; widok z boku (grubość 6 na całej długości, bez wysunięcia) nie pokazuje żadnego wystającego elementu, a przekrój otworu nie jest zaznaczony liniami ukrytymi.",
+      "assumption": "Przyjęto przelotowy otwór kwadratowy 7x7 z narożami R1, wyśrodkowany w osi łba; nie modelowano czopa.",
+      "severity": "ostrzezenie",
+      "affected_dimensions": [
+        "D4",
+        "D6"
+      ]
+    },
+    {
+      "id": "A3",
+      "description": "R1 (D8) wskazane jest tylko na jednej krawędzi obrysu w widoku z boku.",
+      "assumption": "Przyjęto zaokrąglenie R1 wszystkich krawędzi obrysu płyty, tj. krawędzi obu powierzchni >Z i <Z.",
+      "severity": "info",
+      "affected_dimensions": [
+        "D8"
+      ]
+    },
+    {
+      "id": "A4",
+      "description": "R1 (D6) wskazane jest tylko na jednym narożu otworu kwadratowego.",
+      "assumption": "Przyjęto jednakowy promień R1 na wszystkich czterech narożach otworu kwadratowego.",
+      "severity": "info",
+      "affected_dimensions": [
+        "D6"
+      ]
+    },
+    {
+      "id": "A5",
+      "description": "Wymiar 100 jest mierzony od osi łba do prawego końca; brak osobnego wymiaru gabarytowego długości całkowitej.",
+      "assumption": "Długość całkowita płyty wynosi 100 + R10 = 110 mm (wynika z wymiarów D1 i D7), a wysokość całkowita 20 mm (2 x R10).",
+      "severity": "info",
+      "affected_dimensions": [
+        "D1",
+        "D7"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,201 @@
+{
+  "drawing_no": "01.01.03",
+  "name": "Dźwignia",
+  "part_type": "plaska",
+  "operations": [
+    {
+      "op": "plyta_z_profilu",
+      "plane": "XY",
+      "thickness": 6.0,
+      "centered_extrude": true,
+      "shapes": [
+        {
+          "kind": "circle",
+          "cx": -45.0,
+          "cy": 0.0,
+          "radius": 10.0
+        },
+        {
+          "kind": "rect",
+          "cx": 5.0,
+          "cy": 0.0,
+          "width": 100.0,
+          "height": 15.0
+        }
+      ]
+    },
+    {
+      "op": "otwor_kwadratowy",
+      "plane": "XY",
+      "size": 7.0,
+      "corner_radius": 1.0,
+      "positions": [
+        [
+          -45.0,
+          0.0
+        ]
+      ],
+      "depth": null
+    },
+    {
+      "op": "zaokraglenie_krawedzi",
+      "radius": 6.0,
+      "selector": "near_points",
+      "axis": "Z",
+      "points": [
+        [
+          -38.386,
+          7.5
+        ],
+        [
+          -38.386,
+          -7.5
+        ]
+      ],
+      "face_selector": null,
+      "tolerance": 1.0
+    },
+    {
+      "op": "zaokraglenie_krawedzi",
+      "radius": 6.0,
+      "selector": "near_points",
+      "axis": "Z",
+      "points": [
+        [
+          55.0,
+          7.5
+        ],
+        [
+          55.0,
+          -7.5
+        ]
+      ],
+      "face_selector": null,
+      "tolerance": 0.75
+    },
+    {
+      "op": "zaokraglenie_krawedzi",
+      "radius": 1.0,
+      "selector": "face_edges",
+      "axis": "Z",
+      "points": [],
+      "face_selector": ">Z or <Z",
+      "tolerance": 0.75
+    }
+  ],
+  "dimension_bindings": [
+    {
+      "dim_id": "D1",
+      "target": "promien",
+      "expected_value": 10.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Promień R10 lewego końca (okrąg tworzący gabaryt 20 mm w Y)"
+    },
+    {
+      "dim_id": "D2",
+      "target": "promien",
+      "expected_value": 6.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Promień R6 wklęsłego przejścia okręgu R10 w trzon (zaokrąglenie obu symetrycznych naroży)"
+    },
+    {
+      "dim_id": "D3",
+      "target": "promien",
+      "expected_value": 6.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Promień R6 zaokrąglenia naroży prawego końca trzonu o szerokości 15 mm"
+    },
+    {
+      "dim_id": "D4",
+      "target": "kwadrat",
+      "expected_value": 7.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Otwór kwadratowy 7x7 przelotowy w środku lewego końca (oś otworu w środku okręgu R10)"
+    },
+    {
+      "dim_id": "D5",
+      "target": "dlugosc_odcinka",
+      "expected_value": 15.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Szerokość trzonu (prostokąt 100 x 15) w kierunku Y"
+    },
+    {
+      "dim_id": "D6",
+      "target": "promien",
+      "expected_value": 1.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Promień R1 naroży otworu kwadratowego 7x7"
+    },
+    {
+      "dim_id": "D7",
+      "target": "dlugosc_odcinka",
+      "expected_value": 100.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Odległość osi otworu kwadratowego / środka okręgu R10 (x = -45) od prawego końca części (x = +55)"
+    },
+    {
+      "dim_id": "D8",
+      "target": "promien",
+      "expected_value": 1.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Promień R1 zaokrąglenia górnych i dolnych krawędzi obrysu płyty (widoczne w widoku z boku na obu końcach)"
+    },
+    {
+      "dim_id": "D9",
+      "target": "grubosc",
+      "expected_value": 6.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Grubość płyty dźwigni w kierunku Z"
+    }
+  ],
+  "threads": [],
+  "ambiguities": [
+    {
+      "id": "A1",
+      "description": "Oznaczenie □7 wskazuje kwadrat na lewym końcu; w widoku z boku brak jakiegokolwiek występu, więc nie jest to czop, lecz otwór przelotowy.",
+      "assumption": "Modelowano □7 jako przelotowy otwór kwadratowy 7x7 z narożami R1, wyśrodkowany w osi okręgu R10.",
+      "severity": "info",
+      "affected_dimensions": [
+        "D4",
+        "D6"
+      ]
+    },
+    {
+      "id": "A2",
+      "description": "Wymiar 100 jest wymiarowany od osi otworu kwadratowego (środka okręgu R10) do prawego końca; po zaokrągleniu naroży R6 nie istnieje pojedyncza prosta krawędź o długości 100 mm — wymiar opisuje odległość osi otworu od skrajnej płaszczyzny prawego końca.",
+      "assumption": "Przyjęto 100 mm jako odległość osi otworu/środka okręgu R10 od prawej skrajnej płaszczyzny części (gabaryt X = 100 + 10 = 110 mm).",
+      "severity": "info",
+      "affected_dimensions": [
+        "D7",
+        "D1"
+      ]
+    },
+    {
+      "id": "A3",
+      "description": "R1 w widoku z boku (D8) zaznaczono tylko przy jednym narożniku, a w widoku z góry obrys nie jest wyraźnie zdublowany; promień dotyczy zaokrąglenia krawędzi płaszczyzny górnej i dolnej.",
+      "assumption": "Zaokrąglono R1 wszystkie krawędzie ścian górnej i dolnej płyty (obwodowe), co daje widoczne w widoku z boku łuki R1 na obu końcach.",
+      "severity": "ostrzezenie",
+      "affected_dimensions": [
+        "D8"
+      ]
+    }
+  ]
+}

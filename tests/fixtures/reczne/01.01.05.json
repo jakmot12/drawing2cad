@@ -1,0 +1,33 @@
+{
+  "drawing_no": "01.01.05",
+  "name": "Śruba",
+  "part_type": "toczona",
+  "operations": [
+    {"op": "czop_kwadratowy", "axis": "X", "size": 7.0, "length": 10.0, "corner_radius": 1.0, "offset": 0.0},
+    {"op": "walec", "axis": "X", "diameter": 10.0, "length": 300.0, "offset": 10.0, "centered": false},
+    {"op": "fazka", "size": 1.0, "angle_deg": 45.0, "face_selectors": [">X"]}
+  ],
+  "dimension_bindings": [
+    {"dim_id": "D1", "target": "gwint_zewnetrzny", "expected_value": 10.0, "thread_spec": "M10", "description": "gwint prawy M10"},
+    {"dim_id": "D2", "target": "promien", "expected_value": 1.0, "description": "zaokrąglenie naroży czopa kwadratowego R1"},
+    {"dim_id": "D3", "target": "gwint_zewnetrzny", "expected_value": 10.0, "thread_spec": "M10 LH", "description": "gwint lewy M10 lewy"},
+    {"dim_id": "D4", "target": "fazka", "expected_value": 1.0, "secondary_value": 45.0, "description": "fazka 1x45° na końcu gwintu prawego"},
+    {"dim_id": "D5", "target": "kwadrat", "expected_value": 7.0, "description": "czop kwadratowy □7"},
+    {"dim_id": "D6", "target": "dlugosc_odcinka", "expected_value": 150.0, "description": "długość odcinka gwintu lewego"},
+    {"dim_id": "D7", "target": "dlugosc_odcinka", "expected_value": 150.0, "description": "długość odcinka gwintu prawego"},
+    {"dim_id": "D8", "target": "gabaryt", "expected_value": 310.0, "description": "długość całkowita"}
+  ],
+  "threads": [
+    {"spec": "M10 LH", "direction": "lewy", "nominal_diameter": 10.0, "length": 150.0, "is_internal": false, "location": "odcinek od strony czopa kwadratowego"},
+    {"spec": "M10", "direction": "prawy", "nominal_diameter": 10.0, "length": 150.0, "is_internal": false, "location": "odcinek prawy z fazką 1x45°"}
+  ],
+  "ambiguities": [
+    {
+      "id": "S-N1",
+      "description": "Długość czopa kwadratowego niewymiarowana wprost.",
+      "assumption": "Przyjęto 10 mm z różnicy 310 - 150 - 150.",
+      "severity": "info",
+      "affected_dimensions": ["D8"]
+    }
+  ]
+}

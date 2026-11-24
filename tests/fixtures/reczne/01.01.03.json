@@ -1,0 +1,58 @@
+{
+  "drawing_no": "01.01.03",
+  "name": "Dźwignia",
+  "part_type": "plaska",
+  "operations": [
+    {
+      "op": "plyta_z_profilu",
+      "plane": "XY",
+      "thickness": 6.0,
+      "shapes": [
+        {"kind": "circle", "cx": 0.0, "cy": 0.0, "radius": 10.0},
+        {"kind": "rect", "cx": 50.0, "cy": 0.0, "width": 100.0, "height": 15.0}
+      ]
+    },
+    {
+      "op": "zaokraglenie_krawedzi",
+      "radius": 6.0,
+      "selector": "near_points",
+      "axis": "Z",
+      "points": [[100.0, 7.5], [100.0, -7.5], [6.614, 7.5], [6.614, -7.5]],
+      "tolerance": 0.75
+    },
+    {
+      "op": "zaokraglenie_krawedzi",
+      "radius": 1.0,
+      "selector": "face_edges",
+      "face_selector": ">Z or <Z"
+    },
+    {
+      "op": "otwor_kwadratowy",
+      "plane": "XY",
+      "size": 7.0,
+      "corner_radius": 1.0,
+      "positions": [[0.0, 0.0]]
+    }
+  ],
+  "dimension_bindings": [
+    {"dim_id": "D1", "target": "promien", "expected_value": 10.0, "description": "promień główki R10"},
+    {"dim_id": "D2", "target": "promien", "expected_value": 6.0, "description": "przejście główka-ramię R6"},
+    {"dim_id": "D3", "target": "promien", "expected_value": 6.0, "description": "zaokrąglenie końca ramienia R6"},
+    {"dim_id": "D4", "target": "kwadrat", "expected_value": 7.0, "description": "otwór kwadratowy □7"},
+    {"dim_id": "D5", "target": "dlugosc_odcinka", "expected_value": 15.0, "description": "szerokość ramienia"},
+    {"dim_id": "D6", "target": "promien", "expected_value": 1.0, "description": "naroża otworu kwadratowego R1"},
+    {"dim_id": "D7", "target": "dlugosc_odcinka", "expected_value": 100.0, "description": "odległość od osi otworu do końca ramienia"},
+    {"dim_id": "D8", "target": "promien", "expected_value": 1.0, "description": "zaokrąglenie krawędzi zewnętrznych R1"},
+    {"dim_id": "D9", "target": "grubosc", "expected_value": 6.0, "description": "grubość dźwigni"}
+  ],
+  "threads": [],
+  "ambiguities": [
+    {
+      "id": "D-N1",
+      "description": "Zaokrąglenie R1 w widoku z boku wskazane tylko na jednym narożu.",
+      "assumption": "Przyjęto R1 na wszystkich zewnętrznych krawędziach górnej i dolnej powierzchni.",
+      "severity": "ostrzezenie",
+      "affected_dimensions": ["D8"]
+    }
+  ]
+}

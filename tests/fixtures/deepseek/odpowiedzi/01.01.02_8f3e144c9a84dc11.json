@@ -1,0 +1,262 @@
+{
+  "drawing_no": "01.01.02",
+  "name": "Podstawa",
+  "part_type": "blacha_gieta",
+  "operations": [
+    {
+      "op": "ceownik",
+      "length": 100.0,
+      "outer_width": 36.0,
+      "height": 28.0,
+      "wall_thickness": 3.0,
+      "web_thickness": 3.0,
+      "open_side": "top",
+      "web_length": 100.0,
+      "side_profile": {
+        "kind": "polygon",
+        "points": [
+          [
+            -50.0,
+            0.0
+          ],
+          [
+            50.0,
+            0.0
+          ],
+          [
+            50.0,
+            6.0
+          ],
+          [
+            28.0,
+            28.0
+          ],
+          [
+            -28.0,
+            28.0
+          ],
+          [
+            -50.0,
+            6.0
+          ]
+        ],
+        "vertex_fillets": [
+          {
+            "point": [
+              -50.0,
+              6.0
+            ],
+            "radius": 10.0
+          },
+          {
+            "point": [
+              50.0,
+              6.0
+            ],
+            "radius": 10.0
+          },
+          {
+            "point": [
+              -28.0,
+              28.0
+            ],
+            "radius": 10.0
+          },
+          {
+            "point": [
+              28.0,
+              28.0
+            ],
+            "radius": 10.0
+          }
+        ]
+      }
+    },
+    {
+      "op": "otwor",
+      "plane": "XZ",
+      "diameter": 10.0,
+      "positions": [
+        [
+          -12.5,
+          16.0
+        ],
+        [
+          12.5,
+          16.0
+        ]
+      ],
+      "depth": null
+    }
+  ],
+  "dimension_bindings": [
+    {
+      "dim_id": "D1",
+      "target": "dlugosc_odcinka",
+      "expected_value": 56.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Długość górnej płaskiej krawędzi między teoretycznymi wierzchołkami profilu."
+    },
+    {
+      "dim_id": "D2",
+      "target": "promien",
+      "expected_value": 10.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Promień R10 górnego prawego naroża profilu; lewe naroże symetrycznie wg założenia A1."
+    },
+    {
+      "dim_id": "D3",
+      "target": "otwor_rozstaw",
+      "expected_value": 25.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Rozstaw osi dwóch otworów Ø10."
+    },
+    {
+      "dim_id": "D4",
+      "target": "grubosc",
+      "expected_value": 3.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Grubość ścianki bocznej ceownika."
+    },
+    {
+      "dim_id": "D5",
+      "target": "promien",
+      "expected_value": 10.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Promień R10 dolnego prawego naroża przejścia ścianki w skos; lewe naroże symetrycznie wg założenia A1."
+    },
+    {
+      "dim_id": "D6",
+      "target": "otwor_srednica",
+      "expected_value": 10.0,
+      "secondary_value": null,
+      "multiplicity": 2,
+      "thread_spec": null,
+      "description": "Dwa otwory Ø10."
+    },
+    {
+      "dim_id": "D7",
+      "target": "gabaryt",
+      "expected_value": 28.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Wysokość całkowita ceownika."
+    },
+    {
+      "dim_id": "D8",
+      "target": "kat_sciecia",
+      "expected_value": 45.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Kąt nachylenia bocznego skosu 45°; drugi skos symetrycznie wg założenia A1."
+    },
+    {
+      "dim_id": "D9",
+      "target": "grubosc",
+      "expected_value": 3.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Grubość środnika dna ceownika."
+    },
+    {
+      "dim_id": "D10",
+      "target": "otwor_wysokosc",
+      "expected_value": 16.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Wysokość osi otworów nad dnem."
+    },
+    {
+      "dim_id": "D11",
+      "target": "dlugosc_odcinka",
+      "expected_value": 6.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Wysokość krótkiej pionowej krawędzi bocznej przy dnie; drugi koniec symetrycznie wg założenia A1."
+    },
+    {
+      "dim_id": "D12",
+      "target": "gabaryt",
+      "expected_value": 100.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Długość całkowita wzdłuż X."
+    },
+    {
+      "dim_id": "D13",
+      "target": "gabaryt",
+      "expected_value": 36.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Szerokość zewnętrzna ceownika wzdłuż Y."
+    }
+  ],
+  "threads": [],
+  "ambiguities": [
+    {
+      "id": "A1",
+      "description": "Na rysunku R10 pokazano przy prawych narożach, a 45° i 6 przy jednej stronie; lewe naroża i skos nie są osobno zwymiarowane.",
+      "assumption": "Zastosowano symetrię względem osi X=0: R10 na czterech narożach profilu, skosy 45° po obu stronach oraz pionowe odcinki 6 mm po obu stronach.",
+      "severity": "info",
+      "affected_dimensions": [
+        "D2",
+        "D5",
+        "D8",
+        "D11"
+      ]
+    },
+    {
+      "id": "A2",
+      "description": "Podano tylko rozstaw otworów 25 mm; brak wymiaru położenia osi otworów względem środka lub końca części.",
+      "assumption": "Otwory rozmieszczono symetrycznie względem osi części: x=-12.5 mm i x=+12.5 mm.",
+      "severity": "ostrzezenie",
+      "affected_dimensions": [
+        "D3",
+        "D6",
+        "D10"
+      ]
+    },
+    {
+      "id": "A3",
+      "description": "Otwory 2xØ10 pokazano na widoku jednej ściany bocznej; nie pokazano drugiej ściany.",
+      "assumption": "Modelowane jako dwa otwory przelotowe przez całą szerokość 36 mm, tj. przechodzące przez obie ścianki ceownika.",
+      "severity": "ostrzezenie",
+      "affected_dimensions": [
+        "D6",
+        "D13"
+      ]
+    },
+    {
+      "id": "A4",
+      "description": "Wymiary 56, 100, 28, 6 i 45° zinterpretowano jako opis teoretycznych ostrych wierzchołków profilu przed zaokrągleniem R10.",
+      "assumption": "Promienie R10 są styczne do sąsiednich odcinków, a wymiary liniowe odnoszą się do przecięcia prostych przed zaokrągleniem.",
+      "severity": "info",
+      "affected_dimensions": [
+        "D1",
+        "D2",
+        "D5",
+        "D7",
+        "D8",
+        "D11",
+        "D12"
+      ]
+    }
+  ]
+}

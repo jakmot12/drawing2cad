@@ -1,0 +1,157 @@
+{
+  "drawing_no": "01.01.06",
+  "name": "Ramię",
+  "part_type": "blacha_gieta",
+  "operations": [
+    {
+      "op": "ceownik",
+      "length": 149.0,
+      "outer_width": 30.0,
+      "height": 24.0,
+      "wall_thickness": 3.0,
+      "web_thickness": 3.0,
+      "open_side": "bottom",
+      "web_length": 125.0,
+      "side_profile": {
+        "kind": "slot",
+        "cx": 0.0,
+        "cy": 12.0,
+        "length": 149.0,
+        "width": 24.0
+      }
+    },
+    {
+      "op": "otwor",
+      "plane": "XZ",
+      "diameter": 10.0,
+      "positions": [
+        [
+          -62.5,
+          12.0
+        ],
+        [
+          62.5,
+          12.0
+        ]
+      ],
+      "depth": null
+    }
+  ],
+  "dimension_bindings": [
+    {
+      "dim_id": "D1",
+      "target": "promien",
+      "expected_value": 12.0,
+      "secondary_value": null,
+      "multiplicity": 2,
+      "thread_spec": null,
+      "description": "R12 rounded ends of side-wall lugs; slot half-width equals 12."
+    },
+    {
+      "dim_id": "D2",
+      "target": "otwor_srednica",
+      "expected_value": 10.0,
+      "secondary_value": null,
+      "multiplicity": 2,
+      "thread_spec": null,
+      "description": "Ø10 holes at both rounded ends, through both side walls."
+    },
+    {
+      "dim_id": "D3",
+      "target": "otwor_rozstaw",
+      "expected_value": 125.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Center distance between end holes / slot arc centers."
+    },
+    {
+      "dim_id": "D4",
+      "target": "dlugosc_odcinka",
+      "expected_value": 125.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Length of central connecting web between side-wall lugs."
+    },
+    {
+      "dim_id": "D5",
+      "target": "gabaryt",
+      "expected_value": 30.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Outer width of the U-channel."
+    },
+    {
+      "dim_id": "D6",
+      "target": "grubosc",
+      "expected_value": 3.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Thickness of top web."
+    },
+    {
+      "dim_id": "D7",
+      "target": "grubosc",
+      "expected_value": 3.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Thickness of side wall."
+    }
+  ],
+  "threads": [],
+  "ambiguities": [
+    {
+      "id": "A1",
+      "description": "Overall side-wall length is not directly dimensioned; it follows from hole spacing D3=125 and end radius R12=12.",
+      "assumption": "Modeled as a slot side profile of overall length 149 (125 + 2*12).",
+      "severity": "info",
+      "affected_dimensions": [
+        "D1",
+        "D3",
+        "D4"
+      ]
+    },
+    {
+      "id": "A2",
+      "description": "Lower hole is shown but not separately dimensioned.",
+      "assumption": "Assumed identical to the dimensioned Ø10 upper hole and symmetric about the part center.",
+      "severity": "ostrzezenie",
+      "affected_dimensions": [
+        "D2",
+        "D3"
+      ]
+    },
+    {
+      "id": "A3",
+      "description": "R12 is called out at one rounded end only.",
+      "assumption": "Applied to both rounded ends by symmetry.",
+      "severity": "info",
+      "affected_dimensions": [
+        "D1"
+      ]
+    },
+    {
+      "id": "A4",
+      "description": "D4=125 appears in the side view and may duplicate hole spacing or define the web length.",
+      "assumption": "Interpreted as the central web length between the side-wall lugs; the resulting feature aligns with the hole centers.",
+      "severity": "info",
+      "affected_dimensions": [
+        "D4"
+      ]
+    },
+    {
+      "id": "A5",
+      "description": "The U-channel height is not explicitly dimensioned in the section.",
+      "assumption": "Inferred as 24 mm from the R12 rounded side-wall profile width.",
+      "severity": "ostrzezenie",
+      "affected_dimensions": [
+        "D1",
+        "D5"
+      ]
+    }
+  ]
+}

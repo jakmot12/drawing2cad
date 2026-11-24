@@ -1,0 +1,207 @@
+{
+  "drawing_no": "01.01.01",
+  "name": "Korona",
+  "part_type": "blacha_gieta",
+  "operations": [
+    {
+      "op": "ceownik",
+      "length": 50.0,
+      "outer_width": 36.0,
+      "height": 28.0,
+      "wall_thickness": 3.0,
+      "web_thickness": 3.0,
+      "open_side": "bottom",
+      "web_length": 50.0,
+      "side_profile": {
+        "kind": "polygon",
+        "points": [
+          [
+            -25.0,
+            28.0
+          ],
+          [
+            25.0,
+            28.0
+          ],
+          [
+            25.0,
+            0.0
+          ],
+          [
+            -25.0,
+            0.0
+          ]
+        ],
+        "vertex_fillets": [
+          {
+            "point": [
+              25.0,
+              0.0
+            ],
+            "radius": 10.0
+          },
+          {
+            "point": [
+              -25.0,
+              0.0
+            ],
+            "radius": 10.0
+          }
+        ]
+      }
+    },
+    {
+      "op": "wyciecie_v",
+      "plane": "XZ",
+      "center_x": 0.0,
+      "top_z": 28.0,
+      "depth": 7.5,
+      "angle_deg": 90.0,
+      "direction": "down"
+    },
+    {
+      "op": "otwor",
+      "plane": "XZ",
+      "diameter": 10.0,
+      "positions": [
+        [
+          -15.0,
+          10.0
+        ],
+        [
+          15.0,
+          10.0
+        ]
+      ],
+      "depth": null
+    }
+  ],
+  "dimension_bindings": [
+    {
+      "dim_id": "D1",
+      "target": "gabaryt",
+      "expected_value": 50.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Długość ceownika (X) = szerokość widoku z przodu"
+    },
+    {
+      "dim_id": "D2",
+      "target": "gabaryt",
+      "expected_value": 36.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Zewnętrzna szerokość ceownika (Y), widok z boku"
+    },
+    {
+      "dim_id": "D3",
+      "target": "glebokosc_wyciecia",
+      "expected_value": 7.5,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Głębokość wycięcia V mierzona od górnej krawędzi (z=28) w dół"
+    },
+    {
+      "dim_id": "D4",
+      "target": "kat_wyciecia",
+      "expected_value": 90.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Kąt rozwarcia wycięcia V = 90°"
+    },
+    {
+      "dim_id": "D5",
+      "target": "otwor_srednica",
+      "expected_value": 10.0,
+      "secondary_value": null,
+      "multiplicity": 2,
+      "thread_spec": null,
+      "description": "2 x otwór Ø10 w ściankach bocznych (przelotowe)"
+    },
+    {
+      "dim_id": "D6",
+      "target": "grubosc",
+      "expected_value": 3.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Grubość środnika (web_thickness) = 3"
+    },
+    {
+      "dim_id": "D7",
+      "target": "gabaryt",
+      "expected_value": 28.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Wysokość całkowita ceownika (Z) = 28"
+    },
+    {
+      "dim_id": "D8",
+      "target": "grubosc",
+      "expected_value": 3.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Grubość ścianki bocznej (wall_thickness) = 3"
+    },
+    {
+      "dim_id": "D9",
+      "target": "promien",
+      "expected_value": 10.0,
+      "secondary_value": null,
+      "multiplicity": 2,
+      "thread_spec": null,
+      "description": "R10 - zaokrąglenie dolnych narożników ścianek (obrys XZ), oba narożniki"
+    }
+  ],
+  "threads": [],
+  "ambiguities": [
+    {
+      "id": "A1",
+      "description": "Brak wymiaru położenia otworów 2xØ10 na rysunku (podano wyłącznie średnicę i liczbę).",
+      "assumption": "Przyjęto, że otwory są współśrodkowe z zaokrągleniami R10 dolnych narożników, tj. w punktach (±15, 10) w płaszczyźnie XZ (x = ±(50/2 - 10), z = 10).",
+      "severity": "blad_rysunku",
+      "affected_dimensions": [
+        "D5",
+        "D9",
+        "D1",
+        "D7"
+      ]
+    },
+    {
+      "id": "A2",
+      "description": "Oznaczenie 2xØ10 na widoku z przodu pokazuje dwa otwory, ale nie wskazuje, czy otwory przechodzą również przez tylną ściankę ceownika.",
+      "assumption": "Przyjęto otwory przelotowe przez całą bryłę, czyli po jednym otworze w każdej ze ścianek (razem 4 otwory Ø10, dwa widoczne w widoku z przodu).",
+      "severity": "ostrzezenie",
+      "affected_dimensions": [
+        "D5",
+        "D2"
+      ]
+    },
+    {
+      "id": "A3",
+      "description": "R10 wskazano tylko na jednym dolnym narożniku widoku z przodu.",
+      "assumption": "Zaokrąglenie R10 dotyczy obu dolnych narożników obrysu ścianek bocznych (część symetryczna).",
+      "severity": "info",
+      "affected_dimensions": [
+        "D9"
+      ]
+    },
+    {
+      "id": "A4",
+      "description": "Wycięcie V (90°, głębokość 7,5) jest głębsze niż grubość środnika (3), więc przecina środnik na wylot; brak informacji o dodatkowym kształtowaniu ścianek w tym miejscu.",
+      "assumption": "Wycięcie V wycina wyłącznie środnik górny na całej jego grubości, nie naruszając ścianek bocznych (szerokość V u góry 15 mm mieści się między ściankami).",
+      "severity": "info",
+      "affected_dimensions": [
+        "D3",
+        "D4",
+        "D6"
+      ]
+    }
+  ]
+}

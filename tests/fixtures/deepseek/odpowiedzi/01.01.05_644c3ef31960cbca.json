@@ -1,0 +1,166 @@
+{
+  "drawing_no": "01.01.05",
+  "name": "Śruba",
+  "part_type": "toczona",
+  "operations": [
+    {
+      "op": "walec",
+      "axis": "X",
+      "diameter": 10.0,
+      "length": 150.0,
+      "offset": 0.0,
+      "centered": false
+    },
+    {
+      "op": "walec",
+      "axis": "X",
+      "diameter": 10.001,
+      "length": 150.0,
+      "offset": 150.0,
+      "centered": false
+    },
+    {
+      "op": "czop_kwadratowy",
+      "axis": "X",
+      "size": 7.0,
+      "length": 10.0,
+      "corner_radius": 1.0,
+      "offset": 300.0
+    },
+    {
+      "op": "fazka",
+      "size": 1.0,
+      "angle_deg": 45.0,
+      "face_selectors": [
+        ">X"
+      ]
+    }
+  ],
+  "dimension_bindings": [
+    {
+      "dim_id": "D1",
+      "target": "gwint_zewnetrzny",
+      "expected_value": 10.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": "M10",
+      "description": "Gwint M10 (prawy) na prawym odcinku 150 mm"
+    },
+    {
+      "dim_id": "D2",
+      "target": "promien",
+      "expected_value": 1.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Promień zaokrąglenia naroży czopa kwadratowego R1"
+    },
+    {
+      "dim_id": "D3",
+      "target": "gwint_zewnetrzny",
+      "expected_value": 10.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": "M10 LH",
+      "description": "Gwint M10 lewy na lewym odcinku 150 mm"
+    },
+    {
+      "dim_id": "D4",
+      "target": "fazka",
+      "expected_value": 1.0,
+      "secondary_value": 45.0,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Fazka 1x45° na końcu czopa kwadratowego"
+    },
+    {
+      "dim_id": "D5",
+      "target": "kwadrat",
+      "expected_value": 7.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Czop kwadratowy □7"
+    },
+    {
+      "dim_id": "D6",
+      "target": "dlugosc_odcinka",
+      "expected_value": 150.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Długość lewego odcinka gwintu (M10 lewy) = 150 mm"
+    },
+    {
+      "dim_id": "D7",
+      "target": "dlugosc_odcinka",
+      "expected_value": 150.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Długość prawego odcinka gwintu (M10) = 150 mm"
+    },
+    {
+      "dim_id": "D8",
+      "target": "gabaryt",
+      "expected_value": 310.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Długość całkowita śruby = 310 mm"
+    }
+  ],
+  "threads": [
+    {
+      "spec": "M10 LH",
+      "direction": "lewy",
+      "nominal_diameter": 10.0,
+      "length": 150.0,
+      "is_internal": false,
+      "location": "lewy koniec (odcinek 0-150 mm)"
+    },
+    {
+      "spec": "M10",
+      "direction": "prawy",
+      "nominal_diameter": 10.0,
+      "length": 150.0,
+      "is_internal": false,
+      "location": "prawy odcinek przed czopem (150-300 mm)"
+    }
+  ],
+  "ambiguities": [
+    {
+      "id": "amb1",
+      "description": "Brak wymiaru długości czopa kwadratowego; przyjęto 10 mm jako różnicę 310 - 150 - 150.",
+      "assumption": "Długość czopa kwadratowego = 10 mm.",
+      "severity": "ostrzezenie",
+      "affected_dimensions": [
+        "D8",
+        "D6",
+        "D7"
+      ]
+    },
+    {
+      "id": "amb2",
+      "description": "Linie przerwania na rysunku sugerują ciągły wałek; wymiary 150+150 interpretowano jako dwie sekcje gwintu: lewą (M10 lewy) i prawą (M10).",
+      "assumption": "Lewy gwint M10 lewy o długości 150 mm, prawy gwint M10 o długości 150 mm, styk w połowie długości.",
+      "severity": "ostrzezenie",
+      "affected_dimensions": [
+        "D3",
+        "D1",
+        "D6",
+        "D7"
+      ]
+    },
+    {
+      "id": "amb3",
+      "description": "Aby zapewnić rozróżnialność krawędzi 150 mm w modelu, wprowadzono minimalny stopień 0.001 mm między sekcjami gwintu (niewidoczny na rysunku).",
+      "assumption": "Stopień 0.001 mm jest artefaktem modelarskim.",
+      "severity": "info",
+      "affected_dimensions": [
+        "D6",
+        "D7"
+      ]
+    }
+  ]
+}

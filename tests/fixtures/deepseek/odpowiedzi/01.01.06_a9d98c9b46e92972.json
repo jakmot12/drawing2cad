@@ -1,0 +1,146 @@
+{
+  "drawing_no": "01.01.06",
+  "name": "Ramię",
+  "part_type": "blacha_gieta",
+  "operations": [
+    {
+      "op": "ceownik",
+      "length": 149.0,
+      "outer_width": 30.0,
+      "height": 24.0,
+      "wall_thickness": 3.0,
+      "web_thickness": 3.0,
+      "open_side": "bottom",
+      "web_length": null,
+      "side_profile": {
+        "kind": "slot",
+        "cx": 0.0,
+        "cy": 12.0,
+        "length": 149.0,
+        "width": 24.0
+      }
+    },
+    {
+      "op": "otwor",
+      "plane": "XZ",
+      "diameter": 10.0,
+      "positions": [
+        [
+          62.5,
+          12.0
+        ],
+        [
+          -62.5,
+          12.0
+        ]
+      ],
+      "depth": null
+    }
+  ],
+  "dimension_bindings": [
+    {
+      "dim_id": "D1",
+      "target": "promien",
+      "expected_value": 12.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "R12 – promień zaokrąglenia końców; szerokość profilu = 2×R12 = 24"
+    },
+    {
+      "dim_id": "D2",
+      "target": "otwor_srednica",
+      "expected_value": 10.0,
+      "secondary_value": null,
+      "multiplicity": 2,
+      "thread_spec": null,
+      "description": "Ø10 – dwa otwory przelotowe w ściankach bocznych"
+    },
+    {
+      "dim_id": "D3",
+      "target": "otwor_rozstaw",
+      "expected_value": 125.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Rozstaw otworów wzdłuż osi X (X=±62.5)"
+    },
+    {
+      "dim_id": "D4",
+      "target": "otwor_rozstaw",
+      "expected_value": 125.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Rozstaw 125 w widoku z boku – rzut tego samego rozstawu otworów"
+    },
+    {
+      "dim_id": "D5",
+      "target": "gabaryt",
+      "expected_value": 30.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Szerokość zewnętrzna ceownika (Y)"
+    },
+    {
+      "dim_id": "D6",
+      "target": "grubosc",
+      "expected_value": 3.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Grubość środnika (Z)"
+    },
+    {
+      "dim_id": "D7",
+      "target": "grubosc",
+      "expected_value": 3.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Grubość ścianek bocznych (Y)"
+    }
+  ],
+  "threads": [],
+  "ambiguities": [
+    {
+      "id": "A1",
+      "description": "Wysokość ceownika (Z) nie jest zwymiarowana wprost na rysunku.",
+      "assumption": "Przyjęto wysokość = 2×R12 = 24 mm, ponieważ końce profilu są półkoliste.",
+      "severity": "info",
+      "affected_dimensions": [
+        "D1"
+      ]
+    },
+    {
+      "id": "A2",
+      "description": "Brak wymiaru długości całkowitej; otwory przyjęto jako współśrodkowe z łukami R12.",
+      "assumption": "Długość całkowita = 125 + 2×R12 = 149 mm, otwory w środkach łuków końcowych (X=±62.5, Z=12).",
+      "severity": "info",
+      "affected_dimensions": [
+        "D1",
+        "D3"
+      ]
+    },
+    {
+      "id": "A3",
+      "description": "Wymiar 125 w widoku z boku (D4) pokrywa się z rozstawem otworów.",
+      "assumption": "D4 to rzut tego samego rozstawu otworów co D3, nie odrębna cecha geometryczna.",
+      "severity": "info",
+      "affected_dimensions": [
+        "D4"
+      ]
+    },
+    {
+      "id": "A4",
+      "description": "Oba wymiary 3 (D6, D7): przypisanie grubości środnika i ścianek.",
+      "assumption": "D6 = grubość środnika, D7 = grubość ścianek bocznych; geometria jest symetryczna, więc ewentualna zamiana nie wpływa na bryłę.",
+      "severity": "info",
+      "affected_dimensions": [
+        "D6",
+        "D7"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,184 @@
+{
+  "drawing_no": "01.01.04",
+  "name": "Ośka",
+  "part_type": "toczona",
+  "operations": [
+    {
+      "op": "walec",
+      "axis": "Z",
+      "diameter": 10.0,
+      "length": 15.0,
+      "offset": -25.5,
+      "centered": false
+    },
+    {
+      "op": "walec",
+      "axis": "Z",
+      "diameter": 16.0,
+      "length": 21.0,
+      "offset": -10.5,
+      "centered": false
+    },
+    {
+      "op": "walec",
+      "axis": "Z",
+      "diameter": 10.0,
+      "length": 15.0,
+      "offset": 10.5,
+      "centered": false
+    },
+    {
+      "op": "otwor",
+      "plane": "XZ",
+      "diameter": 10.0,
+      "positions": [
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "depth": null
+    },
+    {
+      "op": "fazka",
+      "size": 1.0,
+      "angle_deg": 45.0,
+      "face_selectors": [
+        "<Z"
+      ]
+    }
+  ],
+  "dimension_bindings": [
+    {
+      "dim_id": "D1",
+      "target": "walec_srednica",
+      "expected_value": 16.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Średnica części środkowej (walec Ø16, długość 21)"
+    },
+    {
+      "dim_id": "D2",
+      "target": "dlugosc_odcinka",
+      "expected_value": 15.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Długość górnego czopa (od z=10.5 do z=25.5)"
+    },
+    {
+      "dim_id": "D3",
+      "target": "dlugosc_odcinka",
+      "expected_value": 21.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Długość części środkowej Ø16 (od z=-10.5 do z=10.5)"
+    },
+    {
+      "dim_id": "D4",
+      "target": "gabaryt",
+      "expected_value": 51.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Długość całkowita części (od z=-25.5 do z=25.5)"
+    },
+    {
+      "dim_id": "D5",
+      "target": "gwint_wewnetrzny",
+      "expected_value": 10.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": "M10",
+      "description": "Otwór poprzeczny gwintowany M10 w części środkowej – modelowany jako otwór Ø10 wzdłuż Y"
+    },
+    {
+      "dim_id": "D6",
+      "target": "gwint_zewnetrzny",
+      "expected_value": 10.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": "M10",
+      "description": "Gwint zewnętrzny M10 dolnego czopa – modelowany jako walec Ø10 długości 15"
+    },
+    {
+      "dim_id": "D7",
+      "target": "fazka",
+      "expected_value": 1.0,
+      "secondary_value": 45.0,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Fazka 1x45° na końcu dolnego czopa (ściana <Z), zbieżna od Ø10 do Ø8"
+    }
+  ],
+  "threads": [
+    {
+      "spec": "M10",
+      "direction": "prawy",
+      "nominal_diameter": 10.0,
+      "length": 16.0,
+      "is_internal": true,
+      "location": "otwór poprzeczny (oś Y) przez część środkową Ø16"
+    },
+    {
+      "spec": "M10",
+      "direction": "prawy",
+      "nominal_diameter": 10.0,
+      "length": 15.0,
+      "is_internal": false,
+      "location": "dolny czop Ø10 (strona fazki 1x45°)"
+    },
+    {
+      "spec": "M10",
+      "direction": "prawy",
+      "nominal_diameter": 10.0,
+      "length": 15.0,
+      "is_internal": false,
+      "location": "górny czop Ø10 (średnica przyjęta jak dolnego czopa – patrz ambiguities)"
+    }
+  ],
+  "ambiguities": [
+    {
+      "id": "A1",
+      "description": "Fazka 1x45° jest wskazana tylko przy jednym (dolnym) końcu; brak drugiego wywołania na górnym czopie.",
+      "assumption": "Modelowano fazkę 1x45° tylko na dolnym końcu (<Z), zgodnie z pojedynczym wywołaniem D7.",
+      "severity": "info",
+      "affected_dimensions": [
+        "D7"
+      ]
+    },
+    {
+      "id": "A2",
+      "description": "Długość dolnego czopa nie jest zwymiarowana wprost – wynika z 51 - 21 - 15.",
+      "assumption": "Przyjęto 15 mm (część symetryczna: 15 + 21 + 15 = 51).",
+      "severity": "info",
+      "affected_dimensions": [
+        "D2",
+        "D3",
+        "D4"
+      ]
+    },
+    {
+      "id": "A3",
+      "description": "Średnica górnego czopa nie ma osobnego wymiaru; rysunek pokazuje oba czopy o jednakowej szerokości, a jedyne wywołanie M10 dotyczy dolnego czopa.",
+      "assumption": "Przyjęto górny czop Ø10 (M10), tak jak dolny czop – brak innego wymiaru średnicy na rysunku.",
+      "severity": "ostrzezenie",
+      "affected_dimensions": [
+        "D1",
+        "D6"
+      ]
+    },
+    {
+      "id": "A4",
+      "description": "Część środkowa jest zwymiarowana tylko średnicą Ø16 (brak oznaczenia przekroju kwadratowego).",
+      "assumption": "Przyjęto walec Ø16 o długości 21 mm (część toczona).",
+      "severity": "info",
+      "affected_dimensions": [
+        "D1",
+        "D3"
+      ]
+    }
+  ]
+}

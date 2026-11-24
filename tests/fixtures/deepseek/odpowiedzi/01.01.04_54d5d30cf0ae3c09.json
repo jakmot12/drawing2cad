@@ -1,0 +1,164 @@
+{
+  "drawing_no": "01.01.04",
+  "name": "Ośka",
+  "part_type": "toczona",
+  "operations": [
+    {
+      "op": "walec",
+      "axis": "Z",
+      "diameter": 16.0,
+      "length": 21.0,
+      "offset": 15.0,
+      "centered": false
+    },
+    {
+      "op": "walec",
+      "axis": "Z",
+      "diameter": 10.0,
+      "length": 15.0,
+      "offset": 0.0,
+      "centered": false
+    },
+    {
+      "op": "walec",
+      "axis": "Z",
+      "diameter": 10.0,
+      "length": 15.0,
+      "offset": 36.0,
+      "centered": false
+    },
+    {
+      "op": "otwor",
+      "plane": "XZ",
+      "diameter": 10.0,
+      "positions": [
+        [
+          0.0,
+          25.5
+        ]
+      ],
+      "depth": null
+    },
+    {
+      "op": "fazka",
+      "size": 1.0,
+      "angle_deg": 45.0,
+      "face_selectors": [
+        "<Z"
+      ]
+    }
+  ],
+  "dimension_bindings": [
+    {
+      "dim_id": "D1",
+      "target": "walec_srednica",
+      "expected_value": 16.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Średnica korpusu centralnego"
+    },
+    {
+      "dim_id": "D2",
+      "target": "dlugosc_odcinka",
+      "expected_value": 15.0,
+      "secondary_value": null,
+      "multiplicity": 2,
+      "thread_spec": null,
+      "description": "Długość gwintowanego końca (oba końce)"
+    },
+    {
+      "dim_id": "D3",
+      "target": "dlugosc_odcinka",
+      "expected_value": 21.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Długość korpusu centralnego"
+    },
+    {
+      "dim_id": "D4",
+      "target": "gabaryt",
+      "expected_value": 51.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Całkowita długość części"
+    },
+    {
+      "dim_id": "D5",
+      "target": "gwint_wewnetrzny",
+      "expected_value": 10.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": "M10",
+      "description": "Gwint wewnętrzny M10 w otworze poprzecznym korpusu"
+    },
+    {
+      "dim_id": "D6",
+      "target": "gwint_zewnetrzny",
+      "expected_value": 10.0,
+      "secondary_value": null,
+      "multiplicity": 2,
+      "thread_spec": "M10",
+      "description": "Gwint zewnętrzny M10 na końcach wałka"
+    },
+    {
+      "dim_id": "D7",
+      "target": "fazka",
+      "expected_value": 1.0,
+      "secondary_value": 45.0,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Fazka 1x45° na dolnym końcu"
+    }
+  ],
+  "threads": [
+    {
+      "spec": "M10",
+      "direction": "prawy",
+      "nominal_diameter": 10.0,
+      "length": null,
+      "is_internal": true,
+      "location": "otwór poprzeczny przez korpus centralny"
+    },
+    {
+      "spec": "M10",
+      "direction": "prawy",
+      "nominal_diameter": 10.0,
+      "length": 15.0,
+      "is_internal": false,
+      "location": "oba końce wałka"
+    }
+  ],
+  "ambiguities": [
+    {
+      "id": "A1",
+      "description": "Na rysunku widoczne jest tylko jedno oznaczenie M10 przy dolnym końcu, mimo że oba końce są symetryczne.",
+      "assumption": "Przyjmuję, że oba końce wałka są gwintowane M10 i mają długość 15 mm.",
+      "severity": "ostrzezenie",
+      "affected_dimensions": [
+        "D2",
+        "D6"
+      ]
+    },
+    {
+      "id": "A2",
+      "description": "Otwór poprzeczny w korpusie ma oznaczenie M10, ale nie podano wprost, czy jest przelotowy.",
+      "assumption": "Przyjmuję, że otwór M10 przechodzi przez cały korpus centralny.",
+      "severity": "ostrzezenie",
+      "affected_dimensions": [
+        "D5"
+      ]
+    },
+    {
+      "id": "A3",
+      "description": "Fazka 1x45° jest wskazana tylko przy dolnym końcu; nie ma osobnego oznaczenia dla górnego końca.",
+      "assumption": "Modeluję fazkę 1x45° wyłącznie na dolnej krawędzi (<Z), zgodnie z widocznym wskazaniem.",
+      "severity": "ostrzezenie",
+      "affected_dimensions": [
+        "D7"
+      ]
+    }
+  ]
+}

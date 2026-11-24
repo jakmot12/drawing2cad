@@ -1,0 +1,34 @@
+{
+  "drawing_no": "01.01.04",
+  "name": "Ośka",
+  "part_type": "toczona",
+  "operations": [
+    {"op": "walec", "axis": "Z", "diameter": 16.0, "length": 21.0, "offset": 0.0, "centered": true},
+    {"op": "walec", "axis": "Z", "diameter": 10.0, "length": 15.0, "offset": 10.5, "centered": false},
+    {"op": "walec", "axis": "Z", "diameter": 10.0, "length": 15.0, "offset": -25.5, "centered": false},
+    {"op": "fazka", "size": 1.0, "angle_deg": 45.0, "face_selectors": [">Z", "<Z"]},
+    {"op": "otwor", "plane": "XZ", "diameter": 10.0, "positions": [[0.0, 0.0]]}
+  ],
+  "dimension_bindings": [
+    {"dim_id": "D1", "target": "walec_srednica", "expected_value": 16.0, "description": "średnica korpusu Ø16"},
+    {"dim_id": "D2", "target": "dlugosc_odcinka", "expected_value": 15.0, "description": "długość czopa"},
+    {"dim_id": "D3", "target": "dlugosc_odcinka", "expected_value": 21.0, "description": "długość korpusu"},
+    {"dim_id": "D4", "target": "gabaryt", "expected_value": 51.0, "description": "długość całkowita"},
+    {"dim_id": "D5", "target": "gwint_wewnetrzny", "expected_value": 10.0, "thread_spec": "M10", "description": "otwór poprzeczny gwintowany M10"},
+    {"dim_id": "D6", "target": "gwint_zewnetrzny", "expected_value": 10.0, "thread_spec": "M10", "description": "gwint M10 na czopach"},
+    {"dim_id": "D7", "target": "fazka", "expected_value": 1.0, "secondary_value": 45.0, "description": "fazka 1x45° na końcach czopów"}
+  ],
+  "threads": [
+    {"spec": "M10", "direction": "prawy", "nominal_diameter": 10.0, "length": 15.0, "is_internal": false, "location": "oba czopy zewnętrzne"},
+    {"spec": "M10", "direction": "prawy", "nominal_diameter": 10.0, "is_internal": true, "location": "otwór poprzeczny przez korpus"}
+  ],
+  "ambiguities": [
+    {
+      "id": "O-N1",
+      "description": "Wymiar 15 podany tylko dla górnego czopa.",
+      "assumption": "Dolny czop ma również 15 mm (wynika z 51 - 21 - 15 = 15).",
+      "severity": "info",
+      "affected_dimensions": ["D2"]
+    }
+  ]
+}

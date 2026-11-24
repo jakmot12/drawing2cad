@@ -1,0 +1,172 @@
+{
+  "zespol": {
+    "nazwa": "Podnośnik",
+    "nr_rysunku": "01.01.00",
+    "skala": "1:2",
+    "wymiar_gabarytowy_mm": 180,
+    "zrodlo": ["cad_07_1.pdf (arkusze 1-2)", "cad_08_1.pdf"]
+  },
+  "bom": [
+    {"poz": 1, "ilosc": 1, "nazwa": "Korona", "nr_rysunku": "01.01.01"},
+    {"poz": 2, "ilosc": 4, "nazwa": "Ramię", "nr_rysunku": "01.01.06"},
+    {"poz": 3, "ilosc": 1, "nazwa": "Dźwignia", "nr_rysunku": "01.01.03"},
+    {"poz": 4, "ilosc": 1, "nazwa": "Śruba", "nr_rysunku": "01.01.05"},
+    {"poz": 5, "ilosc": 2, "nazwa": "Ośka", "nr_rysunku": "01.01.04"},
+    {"poz": 6, "ilosc": 1, "nazwa": "Podstawa", "nr_rysunku": "01.01.02"},
+    {"poz": 7, "ilosc": 4, "nazwa": "ISO 4014 - M10 x 45", "nr_rysunku": null, "znormalizowana": true},
+    {"poz": 8, "ilosc": 8, "nazwa": "ISO 4032 - M10", "nr_rysunku": null, "znormalizowana": true}
+  ],
+  "czesci": [
+    {
+      "nr_rysunku": "01.01.01",
+      "nazwa": "Korona",
+      "nazwa_plik": "korona",
+      "typ": "blacha_gieta",
+      "gabaryty_mm": [50, 36, 28],
+      "wymiary": [
+        {"id": "K1", "typ": "dlugosc", "wartosc": 50, "opis": "szerokość w widoku głównym"},
+        {"id": "K2", "typ": "kat", "wartosc": 90, "opis": "kąt wycięcia V"},
+        {"id": "K3", "typ": "dlugosc", "wartosc": 7.5, "opis": "głębokość wycięcia V od górnej krawędzi"},
+        {"id": "K4", "typ": "srednica", "wartosc": 10, "krotnosc": 2, "opis": "otwory przelotowe"},
+        {"id": "K5", "typ": "promien", "wartosc": 10, "opis": "dolne naroża widoku głównego (oba)"},
+        {"id": "K6", "typ": "dlugosc", "wartosc": 36, "opis": "szerokość zewnętrzna ceownika"},
+        {"id": "K7", "typ": "dlugosc", "wartosc": 28, "opis": "wysokość całkowita"},
+        {"id": "K8", "typ": "grubosc", "wartosc": 3, "opis": "grubość ścianki bocznej"},
+        {"id": "K9", "typ": "grubosc", "wartosc": 3, "opis": "grubość półki górnej"}
+      ],
+      "niejednoznacznosci": [
+        {"id": "K-N1", "opis": "Brak wymiarów położenia otworów 2xØ10 (rozstaw, wysokość).",
+         "przyjeto": "Otwory współśrodkowe z narożami R10: x = ±15 od osi, 10 od dolnej krawędzi (rozstaw 30). Pomiar z rysunku zgodny w granicach ~0,5 mm.",
+         "waga": "blad_rysunku"}
+      ]
+    },
+    {
+      "nr_rysunku": "01.01.02",
+      "nazwa": "Podstawa",
+      "nazwa_plik": "podstawa",
+      "typ": "blacha_gieta",
+      "gabaryty_mm": [100, 36, 28],
+      "wymiary": [
+        {"id": "P1", "typ": "dlugosc", "wartosc": 100, "opis": "długość podstawy"},
+        {"id": "P2", "typ": "dlugosc", "wartosc": 56, "opis": "długość górnej krawędzi (do przecięcia linii, przed zaokrągleniem)"},
+        {"id": "P3", "typ": "dlugosc", "wartosc": 25, "opis": "rozstaw otworów"},
+        {"id": "P4", "typ": "srednica", "wartosc": 10, "krotnosc": 2, "opis": "otwory przelotowe"},
+        {"id": "P5", "typ": "dlugosc", "wartosc": 16, "opis": "wysokość osi otworów od podstawy"},
+        {"id": "P6", "typ": "kat", "wartosc": 45, "opis": "kąt ścięcia boków"},
+        {"id": "P7", "typ": "dlugosc", "wartosc": 6, "opis": "wysokość pionowego odcinka boku"},
+        {"id": "P8", "typ": "promien", "wartosc": 10, "krotnosc": 4, "opis": "zaokrąglenia naroży obrysu (górne i boczne)"},
+        {"id": "P9", "typ": "dlugosc", "wartosc": 36, "opis": "szerokość zewnętrzna ceownika"},
+        {"id": "P10", "typ": "dlugosc", "wartosc": 28, "opis": "wysokość całkowita"},
+        {"id": "P11", "typ": "grubosc", "wartosc": 3, "opis": "grubość ścianki bocznej"},
+        {"id": "P12", "typ": "grubosc", "wartosc": 3, "opis": "grubość dna"}
+      ],
+      "kontrole_spojnosci": [
+        {"opis": "6 + (100 - 56) / 2 * tan(45°) = 28", "wynik": "zgodne"}
+      ],
+      "niejednoznacznosci": []
+    },
+    {
+      "nr_rysunku": "01.01.03",
+      "nazwa": "Dźwignia",
+      "nazwa_plik": "dzwignia",
+      "typ": "plaska",
+      "gabaryty_mm": [110, 20, 6],
+      "wymiary": [
+        {"id": "D1", "typ": "promien", "wartosc": 10, "opis": "główka"},
+        {"id": "D2", "typ": "promien", "wartosc": 6, "krotnosc": 2, "opis": "przejście główka-ramię"},
+        {"id": "D3", "typ": "kwadrat", "wartosc": 7, "opis": "otwór kwadratowy w osi główki"},
+        {"id": "D4", "typ": "promien", "wartosc": 1, "opis": "naroża otworu kwadratowego"},
+        {"id": "D5", "typ": "promien", "wartosc": 6, "krotnosc": 2, "opis": "naroża końca ramienia"},
+        {"id": "D6", "typ": "dlugosc", "wartosc": 15, "opis": "szerokość ramienia"},
+        {"id": "D7", "typ": "dlugosc", "wartosc": 100, "opis": "od osi otworu do końca ramienia"},
+        {"id": "D8", "typ": "grubosc", "wartosc": 6, "opis": "grubość"},
+        {"id": "D9", "typ": "promien", "wartosc": 1, "opis": "zaokrąglenie krawędzi zewnętrznych (widok z boku)"}
+      ],
+      "niejednoznacznosci": [
+        {"id": "D-N1", "opis": "R1 w widoku z boku wskazany tylko na jednym narożu.",
+         "przyjeto": "R1 na wszystkich krawędziach obrysu zewnętrznego, górnych i dolnych.",
+         "waga": "ostrzezenie"}
+      ]
+    },
+    {
+      "nr_rysunku": "01.01.04",
+      "nazwa": "Ośka",
+      "nazwa_plik": "oska",
+      "typ": "toczona",
+      "gabaryty_mm": [51, 16, 16],
+      "wymiary": [
+        {"id": "O1", "typ": "srednica", "wartosc": 16, "opis": "korpus"},
+        {"id": "O2", "typ": "dlugosc", "wartosc": 21, "opis": "długość korpusu"},
+        {"id": "O3", "typ": "dlugosc", "wartosc": 15, "opis": "długość czopa"},
+        {"id": "O4", "typ": "dlugosc", "wartosc": 51, "opis": "długość całkowita"},
+        {"id": "O5", "typ": "gwint", "wartosc": "M10", "krotnosc": 2, "opis": "czopy"},
+        {"id": "O6", "typ": "gwint", "wartosc": "M10", "opis": "otwór poprzeczny na wylot przez korpus"},
+        {"id": "O7", "typ": "fazka", "wartosc": "1x45", "opis": "końce czopów"}
+      ],
+      "kontrole_spojnosci": [
+        {"opis": "15 + 21 + 15 = 51", "wynik": "zgodne"}
+      ],
+      "niejednoznacznosci": [
+        {"id": "O-N1", "opis": "Wymiar 15 podany tylko dla górnego czopa.",
+         "przyjeto": "Dolny czop też 15 (wynika z 51 - 21 - 15).",
+         "waga": "info"},
+        {"id": "O-N2", "opis": "Otwór gwintowany M10 w Inventorze jest zwykle modelowany na średnicy rdzenia (~8,4 mm), a nie 10.",
+         "przyjeto": "Wzorzec ma Ø10 nominalnie; checker powinien akceptować obie średnice dla otworów gwintowanych.",
+         "waga": "uwaga_dla_checkera"}
+      ]
+    },
+    {
+      "nr_rysunku": "01.01.05",
+      "nazwa": "Śruba",
+      "nazwa_plik": "sruba",
+      "typ": "toczona",
+      "gabaryty_mm": [310, 10, 10],
+      "wymiary": [
+        {"id": "S1", "typ": "dlugosc", "wartosc": 310, "opis": "długość całkowita"},
+        {"id": "S2", "typ": "dlugosc", "wartosc": 150, "opis": "odcinek gwintu M10 lewego"},
+        {"id": "S3", "typ": "dlugosc", "wartosc": 150, "opis": "odcinek gwintu M10 prawego"},
+        {"id": "S4", "typ": "gwint", "wartosc": "M10 LH", "opis": "gwint lewy (strona czopa kwadratowego)"},
+        {"id": "S5", "typ": "gwint", "wartosc": "M10", "opis": "gwint prawy"},
+        {"id": "S6", "typ": "kwadrat", "wartosc": 7, "opis": "czop kwadratowy"},
+        {"id": "S7", "typ": "promien", "wartosc": 1, "opis": "naroża czopa kwadratowego"},
+        {"id": "S8", "typ": "fazka", "wartosc": "1x45", "opis": "koniec gwintu prawego"}
+      ],
+      "niejednoznacznosci": [
+        {"id": "S-N1", "opis": "Długość czopa kwadratowego niewymiarowana wprost.",
+         "przyjeto": "10 mm (310 - 150 - 150).",
+         "waga": "info"},
+        {"id": "S-N2", "opis": "Kierunek gwintu (lewy/prawy) nie jest geometrią bryły.",
+         "przyjeto": "Sprawdzać z właściwości/opisu gwintu w modelu, nie z bryły.",
+         "waga": "uwaga_dla_checkera"}
+      ]
+    },
+    {
+      "nr_rysunku": "01.01.06",
+      "nazwa": "Ramię",
+      "nazwa_plik": "ramie",
+      "typ": "blacha_gieta",
+      "gabaryty_mm": [149, 30, 24],
+      "wymiary": [
+        {"id": "R1", "typ": "dlugosc", "wartosc": 125, "opis": "rozstaw osi otworów"},
+        {"id": "R2", "typ": "srednica", "wartosc": 10, "krotnosc": 2, "opis": "otwory przelotowe"},
+        {"id": "R3", "typ": "promien", "wartosc": 12, "krotnosc": 2, "opis": "zaokrąglenie końców, współśrodkowe z otworami"},
+        {"id": "R4", "typ": "dlugosc", "wartosc": 30, "opis": "szerokość zewnętrzna ceownika"},
+        {"id": "R5", "typ": "grubosc", "wartosc": 3, "opis": "grubość ścianki"},
+        {"id": "R6", "typ": "grubosc", "wartosc": 3, "opis": "grubość środnika"}
+      ],
+      "niejednoznacznosci": [
+        {"id": "R-N1", "opis": "Wysokość ścianki (24) nie jest wymiarowana wprost.",
+         "przyjeto": "24 = 2 x R12.",
+         "waga": "info"},
+        {"id": "R-N2", "opis": "Długość środnika nie jest zwymiarowana wprost, ale wynika z rzutów: widok z boku ma linie końców środnika na wysokości otworów (125 mm pasuje do wszystkich 3 widoków, 149 i 100 mm nie).",
+         "przyjeto": "Środnik na długości 125 (między osiami otworów).",
+         "waga": "info"}
+      ]
+    }
+  ],
+  "uwagi_ogolne": [
+    "Arkusz 1 (rysunki części 01.01.01-01.01.05) nie ma tabelki rysunkowej: brak materiału, skali i autora dla tych części.",
+    "Żaden rysunek nie podaje materiału ani tolerancji ogólnych.",
+    "Gwinty traktowane jako walce o średnicy nominalnej; typ i kierunek gwintu sprawdzać osobno."
+  ]
+}

@@ -1,0 +1,193 @@
+{
+  "drawing_no": "01.01.01",
+  "name": "Korona",
+  "part_type": "blacha_gieta",
+  "operations": [
+    {
+      "op": "ceownik",
+      "length": 50.0,
+      "outer_width": 36.0,
+      "height": 28.0,
+      "wall_thickness": 3.0,
+      "web_thickness": 3.0,
+      "open_side": "bottom",
+      "web_length": null,
+      "side_profile": {
+        "kind": "polygon",
+        "points": [
+          [
+            -25.0,
+            0.0
+          ],
+          [
+            25.0,
+            0.0
+          ],
+          [
+            25.0,
+            28.0
+          ],
+          [
+            -25.0,
+            28.0
+          ]
+        ],
+        "vertex_fillets": [
+          {
+            "point": [
+              -25.0,
+              0.0
+            ],
+            "radius": 10.0
+          },
+          {
+            "point": [
+              25.0,
+              0.0
+            ],
+            "radius": 10.0
+          }
+        ]
+      }
+    },
+    {
+      "op": "wyciecie_v",
+      "plane": "XZ",
+      "center_x": 0.0,
+      "top_z": 28.0,
+      "depth": 7.5,
+      "angle_deg": 90.0,
+      "direction": "down"
+    },
+    {
+      "op": "otwor",
+      "plane": "XZ",
+      "diameter": 10.0,
+      "positions": [
+        [
+          -15.0,
+          10.0
+        ],
+        [
+          15.0,
+          10.0
+        ]
+      ],
+      "depth": null
+    }
+  ],
+  "dimension_bindings": [
+    {
+      "dim_id": "D1",
+      "target": "gabaryt",
+      "expected_value": 50.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Długość całkowita ceownika wzdłuż X"
+    },
+    {
+      "dim_id": "D2",
+      "target": "gabaryt",
+      "expected_value": 36.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Szerokość zewnętrzna ceownika wzdłuż Y"
+    },
+    {
+      "dim_id": "D3",
+      "target": "glebokosc_wyciecia",
+      "expected_value": 7.5,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Głębokość wycięcia V mierzona od górnej krawędzi"
+    },
+    {
+      "dim_id": "D4",
+      "target": "kat_wyciecia",
+      "expected_value": 90.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Kąt rozwarcia wycięcia V"
+    },
+    {
+      "dim_id": "D5",
+      "target": "otwor_srednica",
+      "expected_value": 10.0,
+      "secondary_value": null,
+      "multiplicity": 2,
+      "thread_spec": null,
+      "description": "Dwa otwory Ø10 w ściance bocznej"
+    },
+    {
+      "dim_id": "D6",
+      "target": "grubosc",
+      "expected_value": 3.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Grubość środnika ceownika"
+    },
+    {
+      "dim_id": "D7",
+      "target": "gabaryt",
+      "expected_value": 28.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Wysokość całkowita ceownika wzdłuż Z"
+    },
+    {
+      "dim_id": "D8",
+      "target": "grubosc",
+      "expected_value": 3.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Grubość ścianki bocznej ceownika"
+    },
+    {
+      "dim_id": "D9",
+      "target": "promien",
+      "expected_value": 10.0,
+      "secondary_value": null,
+      "multiplicity": 2,
+      "thread_spec": null,
+      "description": "Promień zaokrąglenia dolnych narożników profilu bocznego"
+    }
+  ],
+  "threads": [],
+  "ambiguities": [
+    {
+      "id": "A1",
+      "description": "Położenie otworów Ø10 nie jest zwymiarowane na rysunku.",
+      "assumption": "Przyjęto symetryczne środki otworów w X=±15 mm i Z=10 mm, wynikające z geometrii narożników R10 (środki łuków R10).",
+      "severity": "ostrzezenie",
+      "affected_dimensions": [
+        "D5",
+        "D9"
+      ]
+    },
+    {
+      "id": "A2",
+      "description": "Promień R10 pokazano tylko przy lewym dolnym narożniku.",
+      "assumption": "Przyjęto zaokrąglenie R10 obu dolnych narożników profilu bocznego ze względu na symetrię części.",
+      "severity": "info",
+      "affected_dimensions": [
+        "D9"
+      ]
+    },
+    {
+      "id": "A3",
+      "description": "Oznaczenie 2xØ10 może dotyczyć dwóch widocznych otworów lub dwóch osi otworów przechodzących przez obie ścianki.",
+      "assumption": "Otwory modelowano jako przelotowe przez całą szerokość ceownika, czyli w obu ściankach bocznych.",
+      "severity": "ostrzezenie",
+      "affected_dimensions": [
+        "D5"
+      ]
+    }
+  ]
+}

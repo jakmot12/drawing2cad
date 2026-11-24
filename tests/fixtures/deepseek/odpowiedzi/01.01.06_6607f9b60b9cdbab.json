@@ -1,0 +1,136 @@
+{
+  "drawing_no": "01.01.06",
+  "name": "Ramię",
+  "part_type": "blacha_gieta",
+  "operations": [
+    {
+      "op": "ceownik",
+      "length": 149.0,
+      "outer_width": 30.0,
+      "height": 24.0,
+      "wall_thickness": 3.0,
+      "web_thickness": 3.0,
+      "open_side": "bottom",
+      "web_length": null,
+      "side_profile": {
+        "kind": "slot",
+        "cx": 0.0,
+        "cy": 12.0,
+        "length": 149.0,
+        "width": 24.0
+      }
+    },
+    {
+      "op": "otwor",
+      "plane": "XZ",
+      "diameter": 10.0,
+      "positions": [
+        [
+          62.5,
+          12.0
+        ],
+        [
+          -62.5,
+          12.0
+        ]
+      ],
+      "depth": null
+    }
+  ],
+  "dimension_bindings": [
+    {
+      "dim_id": "D1",
+      "target": "promien",
+      "expected_value": 12.0,
+      "secondary_value": null,
+      "multiplicity": 2,
+      "thread_spec": null,
+      "description": "Promień zaokrąglenia końców profilu bocznego (górny i dolny)"
+    },
+    {
+      "dim_id": "D2",
+      "target": "otwor_srednica",
+      "expected_value": 10.0,
+      "secondary_value": null,
+      "multiplicity": 2,
+      "thread_spec": null,
+      "description": "Średnica dwóch otworów Ø10"
+    },
+    {
+      "dim_id": "D3",
+      "target": "otwor_rozstaw",
+      "expected_value": 125.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Rozstaw osi otworów w widoku głównym"
+    },
+    {
+      "dim_id": "D4",
+      "target": "otwor_rozstaw",
+      "expected_value": 125.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Rozstaw osi otworów w widoku bocznym"
+    },
+    {
+      "dim_id": "D5",
+      "target": "gabaryt",
+      "expected_value": 30.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Szerokość zewnętrzna ceownika"
+    },
+    {
+      "dim_id": "D6",
+      "target": "grubosc",
+      "expected_value": 3.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Grubość środnika ceownika"
+    },
+    {
+      "dim_id": "D7",
+      "target": "grubosc",
+      "expected_value": 3.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Grubość ścianki bocznej ceownika"
+    }
+  ],
+  "threads": [],
+  "ambiguities": [
+    {
+      "id": "A1",
+      "description": "Rysunek podaje R12 tylko przy górnym zaokrągleniu profilu bocznego; dolny koniec nie ma osobnego wymiaru.",
+      "assumption": "Przyjęto symetrię i taki sam promień R12 na obu końcach profilu bocznego.",
+      "severity": "info",
+      "affected_dimensions": [
+        "D1"
+      ]
+    },
+    {
+      "id": "A2",
+      "description": "Brak bezpośredniego wymiaru całkowitej długości części; dostępny jest rozstaw otworów 125 i promień R12.",
+      "assumption": "Przyjęto długość całkowitą 149 mm = 125 + 2×R12, ponieważ półkola końcowe są wyśrodkowane na otworach.",
+      "severity": "info",
+      "affected_dimensions": [
+        "D1",
+        "D3"
+      ]
+    },
+    {
+      "id": "A3",
+      "description": "Rysunek nie precyzuje jednoznacznie, czy otwory Ø10 przechodzą tylko przez jedną ściankę, czy przez całą szerokość ceownika.",
+      "assumption": "Otwory modelowano jako przelotowe przez całą szerokość ceownika, czyli przez obie ścianki.",
+      "severity": "info",
+      "affected_dimensions": [
+        "D2"
+      ]
+    }
+  ]
+}

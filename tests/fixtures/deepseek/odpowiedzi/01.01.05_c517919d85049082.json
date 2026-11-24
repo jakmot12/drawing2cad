@@ -1,0 +1,168 @@
+{
+  "drawing_no": "01.01.05",
+  "name": "Śruba",
+  "part_type": "toczona",
+  "operations": [
+    {
+      "op": "czop_kwadratowy",
+      "axis": "X",
+      "size": 7.0,
+      "length": 310.0,
+      "corner_radius": 1.0,
+      "offset": -155.0
+    },
+    {
+      "op": "walec",
+      "axis": "X",
+      "diameter": 10.0,
+      "length": 150.0,
+      "offset": -155.0,
+      "centered": false
+    },
+    {
+      "op": "walec",
+      "axis": "X",
+      "diameter": 10.0,
+      "length": 150.0,
+      "offset": 5.0,
+      "centered": false
+    },
+    {
+      "op": "fazka",
+      "size": 1.0,
+      "angle_deg": 45.0,
+      "face_selectors": [
+        ">X"
+      ]
+    }
+  ],
+  "dimension_bindings": [
+    {
+      "dim_id": "D1",
+      "target": "gwint_zewnetrzny",
+      "expected_value": 10.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": "M10",
+      "description": "Gwint M10 (prawy) na prawym końcu, walec Ø10 o długości 150"
+    },
+    {
+      "dim_id": "D2",
+      "target": "promien",
+      "expected_value": 1.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Promień naroży przekroju kwadratowego R1 (corner_radius czopa)"
+    },
+    {
+      "dim_id": "D3",
+      "target": "gwint_zewnetrzny",
+      "expected_value": 10.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": "M10 LH",
+      "description": "Gwint M10 lewy na lewym końcu, walec Ø10 o długości 150"
+    },
+    {
+      "dim_id": "D4",
+      "target": "fazka",
+      "expected_value": 1.0,
+      "secondary_value": 45.0,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Fazka 1x45° na prawym końcu (ściana >X)"
+    },
+    {
+      "dim_id": "D5",
+      "target": "kwadrat",
+      "expected_value": 7.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Przekrój kwadratowy □7 pręta (czop kwadratowy 7x7)"
+    },
+    {
+      "dim_id": "D6",
+      "target": "dlugosc_odcinka",
+      "expected_value": 150.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Długość lewego odcinka gwintowanego M10 lewy"
+    },
+    {
+      "dim_id": "D7",
+      "target": "dlugosc_odcinka",
+      "expected_value": 150.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Długość prawego odcinka gwintowanego M10"
+    },
+    {
+      "dim_id": "D8",
+      "target": "gabaryt",
+      "expected_value": 310.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Całkowita długość śruby (gabaryt wzdłuż osi X)"
+    }
+  ],
+  "threads": [
+    {
+      "spec": "M10 LH",
+      "direction": "lewy",
+      "nominal_diameter": 10.0,
+      "length": 150.0,
+      "is_internal": false,
+      "location": "lewy koniec pręta (x od -155 do -5)"
+    },
+    {
+      "spec": "M10",
+      "direction": "prawy",
+      "nominal_diameter": 10.0,
+      "length": 150.0,
+      "is_internal": false,
+      "location": "prawy koniec pręta (x od +5 do +155)"
+    }
+  ],
+  "ambiguities": [
+    {
+      "id": "A1",
+      "description": "Widok z prawej pokazuje przekrój kwadratowy □7 z narożami R1 współśrodkowy z okręgiem Ø10 (gwint). Nie jest jednoznaczne, na jakiej długości występuje przekrój kwadratowy, a na jakiej okrągły Ø10.",
+      "assumption": "Przyjęto pręt o przekroju □7 z narożami R1 na całej długości 310 mm, z odcinkami walcowymi Ø10 (gwint M10) po 150 mm na obu końcach; w środku pozostaje 10 mm odcinka kwadratowego (310 - 150 - 150).",
+      "severity": "ostrzezenie",
+      "affected_dimensions": [
+        "D1",
+        "D3",
+        "D5",
+        "D6",
+        "D7",
+        "D8"
+      ]
+    },
+    {
+      "id": "A2",
+      "description": "Fazka 1x45° jest wskazana tylko przy prawym końcu; brak oznaczenia fazki na lewym końcu.",
+      "assumption": "Modelowano fazkę 1x45° wyłącznie na prawym końcu (ściana >X); lewy koniec bez fazki.",
+      "severity": "ostrzezenie",
+      "affected_dimensions": [
+        "D4"
+      ]
+    },
+    {
+      "id": "A3",
+      "description": "Gwinty M10 podano oznaczeniem nominalnym bez podania skoku i długości gwintu wprost na rysunku.",
+      "assumption": "Gwinty modelowano jako walce o średnicy nominalnej Ø10; typ i kierunek (M10 prawy, M10 lewy) zapisano w threads, długość gwintu przyjęto równą wymiarom 150 mm.",
+      "severity": "info",
+      "affected_dimensions": [
+        "D1",
+        "D3",
+        "D6",
+        "D7"
+      ]
+    }
+  ]
+}

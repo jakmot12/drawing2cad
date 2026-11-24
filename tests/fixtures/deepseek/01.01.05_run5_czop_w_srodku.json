@@ -1,0 +1,172 @@
+{
+  "drawing_no": "01.01.05",
+  "name": "Śruba",
+  "part_type": "toczona",
+  "operations": [
+    {
+      "op": "czop_kwadratowy",
+      "axis": "X",
+      "size": 7.0,
+      "length": 10.0,
+      "corner_radius": 1.0,
+      "offset": -5.0
+    },
+    {
+      "op": "walec",
+      "axis": "X",
+      "diameter": 10.0,
+      "length": 150.0,
+      "offset": -155.0,
+      "centered": false
+    },
+    {
+      "op": "walec",
+      "axis": "X",
+      "diameter": 10.0,
+      "length": 150.0,
+      "offset": 5.0,
+      "centered": false
+    },
+    {
+      "op": "fazka",
+      "size": 1.0,
+      "angle_deg": 45.0,
+      "face_selectors": [
+        ">X"
+      ]
+    }
+  ],
+  "dimension_bindings": [
+    {
+      "dim_id": "D1",
+      "target": "gwint_zewnetrzny",
+      "expected_value": 10.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": "M10",
+      "description": "Right-hand external thread M10 on right end"
+    },
+    {
+      "dim_id": "D2",
+      "target": "promien",
+      "expected_value": 1.0,
+      "secondary_value": null,
+      "multiplicity": 4,
+      "thread_spec": null,
+      "description": "Corner radius R1 of square section (4 corners)"
+    },
+    {
+      "dim_id": "D3",
+      "target": "gwint_zewnetrzny",
+      "expected_value": 10.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": "M10 LH",
+      "description": "Left-hand external thread M10 on left end"
+    },
+    {
+      "dim_id": "D4",
+      "target": "fazka",
+      "expected_value": 1.0,
+      "secondary_value": 45.0,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Chamfer 1x45° on right end"
+    },
+    {
+      "dim_id": "D5",
+      "target": "kwadrat",
+      "expected_value": 7.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Square section 7x7"
+    },
+    {
+      "dim_id": "D6",
+      "target": "dlugosc_odcinka",
+      "expected_value": 150.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Left threaded section length"
+    },
+    {
+      "dim_id": "D7",
+      "target": "dlugosc_odcinka",
+      "expected_value": 150.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Right threaded section length"
+    },
+    {
+      "dim_id": "D8",
+      "target": "gabaryt",
+      "expected_value": 310.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Overall length"
+    }
+  ],
+  "threads": [
+    {
+      "spec": "M10 LH",
+      "direction": "lewy",
+      "nominal_diameter": 10.0,
+      "length": 150.0,
+      "is_internal": false,
+      "location": "left end"
+    },
+    {
+      "spec": "M10",
+      "direction": "prawy",
+      "nominal_diameter": 10.0,
+      "length": 150.0,
+      "is_internal": false,
+      "location": "right end"
+    }
+  ],
+  "ambiguities": [
+    {
+      "id": "A1",
+      "description": "Length of central square section is not explicitly dimensioned.",
+      "assumption": "Derived as overall length 310 minus two threaded lengths 150 each = 10 mm.",
+      "severity": "info",
+      "affected_dimensions": [
+        "D6",
+        "D7",
+        "D8"
+      ]
+    },
+    {
+      "id": "A2",
+      "description": "Chamfer 1x45° is indicated only at the right end.",
+      "assumption": "Applied only to the right end face; left end remains without chamfer.",
+      "severity": "info",
+      "affected_dimensions": [
+        "D4"
+      ]
+    },
+    {
+      "id": "A3",
+      "description": "Right thread is labeled only as M10; hand is not explicitly stated.",
+      "assumption": "Assumed right-hand thread because the opposite end is explicitly marked left-hand.",
+      "severity": "info",
+      "affected_dimensions": [
+        "D1"
+      ]
+    },
+    {
+      "id": "A4",
+      "description": "The 150 dimensions are interpreted as lengths of the threaded sections from each end.",
+      "assumption": "They define the left and right M10 threaded lengths; the remaining 10 mm is the square section.",
+      "severity": "info",
+      "affected_dimensions": [
+        "D6",
+        "D7"
+      ]
+    }
+  ]
+}

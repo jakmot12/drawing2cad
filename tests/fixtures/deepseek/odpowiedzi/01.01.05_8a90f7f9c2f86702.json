@@ -1,0 +1,168 @@
+{
+  "drawing_no": "01.01.05",
+  "name": "Śruba",
+  "part_type": "toczona",
+  "operations": [
+    {
+      "op": "czop_kwadratowy",
+      "axis": "X",
+      "size": 7.0,
+      "length": 10.0,
+      "corner_radius": 1.0,
+      "offset": -155.0
+    },
+    {
+      "op": "walec",
+      "axis": "X",
+      "diameter": 10.0,
+      "length": 300.0,
+      "offset": -145.0,
+      "centered": false
+    },
+    {
+      "op": "fazka",
+      "size": 1.0,
+      "angle_deg": 45.0,
+      "face_selectors": [
+        ">X"
+      ]
+    }
+  ],
+  "dimension_bindings": [
+    {
+      "dim_id": "D1",
+      "target": "gwint_zewnetrzny",
+      "expected_value": 10.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": "M10",
+      "description": "Gwint M10 (prawy) na końcu prawym – modelowany jako walec nominalny Ø10"
+    },
+    {
+      "dim_id": "D2",
+      "target": "promien",
+      "expected_value": 1.0,
+      "secondary_value": null,
+      "multiplicity": 4,
+      "thread_spec": null,
+      "description": "Promień R1 narożników czopa kwadratowego"
+    },
+    {
+      "dim_id": "D3",
+      "target": "gwint_zewnetrzny",
+      "expected_value": 10.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": "M10 LH",
+      "description": "Gwint M10 lewy na końcu lewym – modelowany jako walec nominalny Ø10"
+    },
+    {
+      "dim_id": "D4",
+      "target": "fazka",
+      "expected_value": 1.0,
+      "secondary_value": 45.0,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Fazka 1x45° na prawym końcu wałka"
+    },
+    {
+      "dim_id": "D5",
+      "target": "kwadrat",
+      "expected_value": 7.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Czop kwadratowy □7 na końcu lewym"
+    },
+    {
+      "dim_id": "D6",
+      "target": "dlugosc_odcinka",
+      "expected_value": 150.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Pierwszy odcinek wału Ø10 (od czopa do środka przerwania) = 150"
+    },
+    {
+      "dim_id": "D7",
+      "target": "dlugosc_odcinka",
+      "expected_value": 150.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Drugi odcinek wału Ø10 (od środka przerwania do końca) = 150"
+    },
+    {
+      "dim_id": "D8",
+      "target": "gabaryt",
+      "expected_value": 310.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Długość całkowita śruby 310 (10 czop + 150 + 150)"
+    }
+  ],
+  "threads": [
+    {
+      "spec": "M10 LH",
+      "direction": "lewy",
+      "nominal_diameter": 10.0,
+      "length": null,
+      "is_internal": false,
+      "location": "koniec lewy (przy czopie kwadratowym)"
+    },
+    {
+      "spec": "M10",
+      "direction": "prawy",
+      "nominal_diameter": 10.0,
+      "length": null,
+      "is_internal": false,
+      "location": "koniec prawy (strona fazki)"
+    }
+  ],
+  "ambiguities": [
+    {
+      "id": "A1",
+      "description": "Rysunek pokazuje przerwanie widoku (stały przekrój w środku). Dwie miary 150 nie mają wyraźnego fizycznego stopnia w połowie wała (brak krawędzi) – przyjęto je jako dwa odcinki jednorodnego wałka Ø10 dzielone w miejscu przerwania.",
+      "assumption": "150 + 150 = 300 mm wałka Ø10, brak zmiany przekroju w połowie.",
+      "severity": "ostrzezenie",
+      "affected_dimensions": [
+        "D6",
+        "D7",
+        "D8"
+      ]
+    },
+    {
+      "id": "A2",
+      "description": "Długość czopa kwadratowego □7 nie jest zwymiarowana wprost. Przyjęto 10 mm jako różnicę 310 - 2×150 i wynik z widocznych krawędzi kwadratu na początku widoku.",
+      "assumption": "Długość czopa kwadratowego = 10 mm (od lewego końca).",
+      "severity": "ostrzezenie",
+      "affected_dimensions": [
+        "D5",
+        "D6",
+        "D7",
+        "D8"
+      ]
+    },
+    {
+      "id": "A3",
+      "description": "Długości odcinków gwintowanych M10 (lewy/prawy) nie są podane na rysunku. Gwinty modelowane jako walec nominalny Ø10 na całej długości wałka; kierunki i zwoje zapisane w threads.",
+      "assumption": "Gwinty na obu końcach wałka Ø10, długości nieznane – modelowany pełny walec Ø10.",
+      "severity": "info",
+      "affected_dimensions": [
+        "D1",
+        "D3"
+      ]
+    },
+    {
+      "id": "A4",
+      "description": "Widok z lewej (pierwszy rzut europejski) przedstawia □7 R1 współśrodkowo z obrysem Ø10, co potwierdza czop kwadratowy na końcu lewym i gwint Ø10 za nim.",
+      "assumption": "Czop kwadratowy umieszczony na końcu lewym, zgodnie z rzutem z lewej.",
+      "severity": "info",
+      "affected_dimensions": [
+        "D2",
+        "D5"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,217 @@
+{
+  "drawing_no": "01.01.03",
+  "name": "Dźwignia",
+  "part_type": "plaska",
+  "operations": [
+    {
+      "op": "plyta_z_profilu",
+      "plane": "XY",
+      "thickness": 6.0,
+      "centered_extrude": false,
+      "shapes": [
+        {
+          "kind": "circle",
+          "cx": 0.0,
+          "cy": 0.0,
+          "radius": 10.0
+        },
+        {
+          "kind": "rect",
+          "cx": 50.0,
+          "cy": 0.0,
+          "width": 100.0,
+          "height": 15.0
+        }
+      ]
+    },
+    {
+      "op": "zaokraglenie_krawedzi",
+      "radius": 6.0,
+      "selector": "near_points",
+      "axis": "Z",
+      "points": [
+        [
+          6.614,
+          7.5
+        ],
+        [
+          6.614,
+          -7.5
+        ]
+      ],
+      "face_selector": null,
+      "tolerance": 0.75
+    },
+    {
+      "op": "zaokraglenie_krawedzi",
+      "radius": 6.0,
+      "selector": "near_points",
+      "axis": "Z",
+      "points": [
+        [
+          100.0,
+          7.5
+        ],
+        [
+          100.0,
+          -7.5
+        ]
+      ],
+      "face_selector": null,
+      "tolerance": 0.75
+    },
+    {
+      "op": "zaokraglenie_krawedzi",
+      "radius": 1.0,
+      "selector": "face_edges",
+      "axis": "Z",
+      "points": [],
+      "face_selector": ">Z or <Z",
+      "tolerance": 0.75
+    },
+    {
+      "op": "otwor_kwadratowy",
+      "plane": "XY",
+      "size": 7.0,
+      "corner_radius": 1.0,
+      "positions": [
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "depth": null
+    }
+  ],
+  "dimension_bindings": [
+    {
+      "dim_id": "D1",
+      "target": "promien",
+      "expected_value": 10.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "R10 głowicy/koła z lewej strony"
+    },
+    {
+      "dim_id": "D2",
+      "target": "promien",
+      "expected_value": 6.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "R6 przejścia między głowicą a ramieniem"
+    },
+    {
+      "dim_id": "D3",
+      "target": "promien",
+      "expected_value": 6.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "R6 naroży prawego końca ramienia"
+    },
+    {
+      "dim_id": "D4",
+      "target": "kwadrat",
+      "expected_value": 7.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Otwór kwadratowy 7x7"
+    },
+    {
+      "dim_id": "D5",
+      "target": "dlugosc_odcinka",
+      "expected_value": 15.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Szerokość ramienia"
+    },
+    {
+      "dim_id": "D6",
+      "target": "promien",
+      "expected_value": 1.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Promień naroży otworu kwadratowego R1"
+    },
+    {
+      "dim_id": "D7",
+      "target": "dlugosc_odcinka",
+      "expected_value": 100.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Odległość od środka głowicy do prawej krawędzi ramienia"
+    },
+    {
+      "dim_id": "D8",
+      "target": "promien",
+      "expected_value": 1.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "R1 zewnętrznych krawędzi górnej i dolnej powierzchni płyty"
+    },
+    {
+      "dim_id": "D9",
+      "target": "grubosc",
+      "expected_value": 6.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Grubość płyty"
+    }
+  ],
+  "threads": [],
+  "ambiguities": [
+    {
+      "id": "A1",
+      "description": "Wymiar 100 wskazuje odległość od środka otworu/głowicy do prawej krawędzi, a nie całkowitą długość elementu.",
+      "assumption": "Przyjęto lewy środek w (0,0), prawą krawędź w x=100; całkowita długość wynosi 110 mm.",
+      "severity": "info",
+      "affected_dimensions": [
+        "D7"
+      ]
+    },
+    {
+      "id": "A2",
+      "description": "R6 na przejściu głowicy w ramię pokazano tylko przy górnej krawędzi.",
+      "assumption": "Zastosowano R6 symetrycznie do górnego i dolnego przejścia.",
+      "severity": "ostrzezenie",
+      "affected_dimensions": [
+        "D2"
+      ]
+    },
+    {
+      "id": "A3",
+      "description": "R6 na prawym końcu pokazano tylko przy górnym narożu.",
+      "assumption": "Zastosowano R6 do obu naroży prawego końca.",
+      "severity": "ostrzezenie",
+      "affected_dimensions": [
+        "D3"
+      ]
+    },
+    {
+      "id": "A4",
+      "description": "R1 w widoku bocznym wskazano przy lewej górnej krawędzi.",
+      "assumption": "Przyjęto R1 jako zaokrąglenie wszystkich zewnętrznych krawędzi górnej i dolnej powierzchni płyty.",
+      "severity": "ostrzezenie",
+      "affected_dimensions": [
+        "D8"
+      ]
+    },
+    {
+      "id": "A5",
+      "description": "Promień R1 otworu kwadratowego wskazano przy jednym narożu.",
+      "assumption": "Zastosowano R1 do wszystkich czterech naroży otworu kwadratowego.",
+      "severity": "ostrzezenie",
+      "affected_dimensions": [
+        "D6"
+      ]
+    }
+  ]
+}

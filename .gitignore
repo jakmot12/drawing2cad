@@ -1,0 +1,22 @@
+# secrets
+.env
+.env.*
+!.env.example
+
+# python
+.venv/
+__pycache__/
+*.egg-info/
+.pytest_cache/
+
+# outputs
+wyniki/
+build/
+dist/
+
+# local AI response cache (real responses used in tests are copied to tests/fixtures/deepseek)
+cache/
+
+# lokalne pliki narzędzi
+.claude/
+PROMPT.md

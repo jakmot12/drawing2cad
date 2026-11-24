@@ -1,0 +1,247 @@
+{
+  "drawing_no": "01.01.03",
+  "name": "Dźwignia",
+  "part_type": "plaska",
+  "operations": [
+    {
+      "op": "plyta_z_profilu",
+      "plane": "XY",
+      "thickness": 6.0,
+      "centered_extrude": false,
+      "shapes": [
+        {
+          "kind": "circle",
+          "cx": 0.0,
+          "cy": 0.0,
+          "radius": 10.0
+        },
+        {
+          "kind": "rect",
+          "cx": 50.0,
+          "cy": 0.0,
+          "width": 100.0,
+          "height": 15.0
+        }
+      ]
+    },
+    {
+      "op": "zaokraglenie_krawedzi",
+      "radius": 6.0,
+      "selector": "near_points",
+      "axis": "Z",
+      "points": [
+        [
+          100.0,
+          7.5
+        ],
+        [
+          100.0,
+          -7.5
+        ]
+      ],
+      "face_selector": null,
+      "tolerance": 0.75
+    },
+    {
+      "op": "zaokraglenie_krawedzi",
+      "radius": 6.0,
+      "selector": "near_points",
+      "axis": "Z",
+      "points": [
+        [
+          6.614,
+          7.5
+        ],
+        [
+          6.614,
+          -7.5
+        ]
+      ],
+      "face_selector": null,
+      "tolerance": 0.8
+    },
+    {
+      "op": "otwor_kwadratowy",
+      "plane": "XY",
+      "size": 7.0,
+      "corner_radius": 1.0,
+      "positions": [
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "depth": null
+    },
+    {
+      "op": "zaokraglenie_krawedzi",
+      "radius": 1.0,
+      "selector": "near_points",
+      "axis": "Y",
+      "points": [
+        [
+          -10.0,
+          6.0
+        ],
+        [
+          -10.0,
+          0.0
+        ]
+      ],
+      "face_selector": null,
+      "tolerance": 0.75
+    }
+  ],
+  "dimension_bindings": [
+    {
+      "dim_id": "D1",
+      "target": "promien",
+      "expected_value": 10.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "R10 lewej głowicy"
+    },
+    {
+      "dim_id": "D2",
+      "target": "promien",
+      "expected_value": 6.0,
+      "secondary_value": null,
+      "multiplicity": 2,
+      "thread_spec": null,
+      "description": "R6 przejścia szyjki (góra/dół)"
+    },
+    {
+      "dim_id": "D3",
+      "target": "promien",
+      "expected_value": 6.0,
+      "secondary_value": null,
+      "multiplicity": 2,
+      "thread_spec": null,
+      "description": "R6 naroży prawego końca"
+    },
+    {
+      "dim_id": "D4",
+      "target": "kwadrat",
+      "expected_value": 7.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "□7 otwór kwadratowy"
+    },
+    {
+      "dim_id": "D5",
+      "target": "dlugosc_odcinka",
+      "expected_value": 15.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "szerokość ramienia/końca 15"
+    },
+    {
+      "dim_id": "D6",
+      "target": "promien",
+      "expected_value": 1.0,
+      "secondary_value": null,
+      "multiplicity": 4,
+      "thread_spec": null,
+      "description": "R1 naroży otworu kwadratowego"
+    },
+    {
+      "dim_id": "D7",
+      "target": "dlugosc_odcinka",
+      "expected_value": 100.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "odległość od środka lewej głowicy do prawego końca"
+    },
+    {
+      "dim_id": "D8",
+      "target": "promien",
+      "expected_value": 1.0,
+      "secondary_value": null,
+      "multiplicity": 2,
+      "thread_spec": null,
+      "description": "R1 krawędzi lewego końca (góra/dół)"
+    },
+    {
+      "dim_id": "D9",
+      "target": "grubosc",
+      "expected_value": 6.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "grubość płyty 6"
+    }
+  ],
+  "threads": [],
+  "ambiguities": [
+    {
+      "id": "AMB_D2_SYMMETRY",
+      "description": "Na rysunku widoczne jest tylko jedno oznaczenie R6 przy szyjce (górna krawędź); dolna krawędź jest symetryczna.",
+      "assumption": "Modeluję dwa symetryczne zaokrąglenia R6 przy przejściu głowicy w ramię.",
+      "severity": "ostrzezenie",
+      "affected_dimensions": [
+        "D2"
+      ]
+    },
+    {
+      "id": "AMB_D3_CORNERS",
+      "description": "Oznaczenie R6 dotyczy górnego prawego naroża; dolne naroże nie ma osobnego wymiaru.",
+      "assumption": "Przyjmuję R6 na obu narożach prawego końca.",
+      "severity": "ostrzezenie",
+      "affected_dimensions": [
+        "D3"
+      ]
+    },
+    {
+      "id": "AMB_RIGHT_END_SHAPE",
+      "description": "Szerokość 15 i promień R6 na końcu sugerują prostokątny koniec z zaokrągleniami naroży, a nie półkole o promieniu 7.5.",
+      "assumption": "Modeluję prawy koniec jako prostokąt szerokości 15 z narożami R6.",
+      "severity": "ostrzezenie",
+      "affected_dimensions": [
+        "D3",
+        "D5"
+      ]
+    },
+    {
+      "id": "AMB_D7_REFERENCE",
+      "description": "Wymiar 100 ma linię pomocniczą przechodzącą przez środek lewej głowicy, a nie przez jej skraj.",
+      "assumption": "100 to odległość od środka lewej głowicy do prawego końca; całkowita długość wynosi 110.",
+      "severity": "ostrzezenie",
+      "affected_dimensions": [
+        "D7",
+        "D1"
+      ]
+    },
+    {
+      "id": "AMB_SQUARE_FEATURE",
+      "description": "Symbol □7 z R1 może oznaczać otwór kwadratowy lub czop; brak wymiaru wysokości i brak występu w widoku z boku.",
+      "assumption": "Modeluję kwadratowy otwór przelotowy 7x7 z narożami R1.",
+      "severity": "ostrzezenie",
+      "affected_dimensions": [
+        "D4",
+        "D6"
+      ]
+    },
+    {
+      "id": "AMB_ARM_WIDTH",
+      "description": "Wymiar 15 podano przy prawym końcu; nie podano oddzielnie szerokości ramienia na całej długości.",
+      "assumption": "Przyjmuję stałą szerokość ramienia 15.",
+      "severity": "info",
+      "affected_dimensions": [
+        "D5"
+      ]
+    },
+    {
+      "id": "AMB_D8_EDGE",
+      "description": "R1 pokazano tylko na górnej lewej krawędzi w widoku z boku.",
+      "assumption": "Zaokrąglam R1 zarówno górną, jak i dolną krawędź lewego końca.",
+      "severity": "ostrzezenie",
+      "affected_dimensions": [
+        "D8"
+      ]
+    }
+  ]
+}

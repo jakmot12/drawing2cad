@@ -1,0 +1,200 @@
+{
+  "drawing_no": "01.01.03",
+  "name": "Dźwignia",
+  "part_type": "plaska",
+  "operations": [
+    {
+      "op": "plyta_z_profilu",
+      "plane": "XY",
+      "thickness": 6.0,
+      "centered_extrude": true,
+      "shapes": [
+        {
+          "kind": "circle",
+          "cx": 0.0,
+          "cy": 0.0,
+          "radius": 10.0
+        },
+        {
+          "kind": "rect",
+          "cx": 53.0,
+          "cy": 0.0,
+          "width": 106.0,
+          "height": 15.0
+        }
+      ]
+    },
+    {
+      "op": "zaokraglenie_krawedzi",
+      "radius": 6.0,
+      "selector": "near_points",
+      "axis": "Z",
+      "points": [
+        [
+          6.614,
+          7.5
+        ],
+        [
+          6.614,
+          -7.5
+        ]
+      ],
+      "face_selector": null,
+      "tolerance": 0.75
+    },
+    {
+      "op": "zaokraglenie_krawedzi",
+      "radius": 6.0,
+      "selector": "near_points",
+      "axis": "Z",
+      "points": [
+        [
+          106.0,
+          7.5
+        ],
+        [
+          106.0,
+          -7.5
+        ]
+      ],
+      "face_selector": null,
+      "tolerance": 0.75
+    },
+    {
+      "op": "zaokraglenie_krawedzi",
+      "radius": 1.0,
+      "selector": "face_edges",
+      "axis": "Z",
+      "points": [],
+      "face_selector": ">Z or <Z",
+      "tolerance": 0.75
+    },
+    {
+      "op": "otwor_kwadratowy",
+      "plane": "XY",
+      "size": 7.0,
+      "corner_radius": 1.0,
+      "positions": [
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "depth": null
+    }
+  ],
+  "dimension_bindings": [
+    {
+      "dim_id": "D1",
+      "target": "promien",
+      "expected_value": 10.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "R10 - promień lewej tarczy (wianka) dźwigni w płaszczyźnie XY"
+    },
+    {
+      "dim_id": "D2",
+      "target": "promien",
+      "expected_value": 6.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "R6 - promień wklęsłego przejścia tarczy R10 w proste krawędzie ramienia (górna i dolna, symetrycznie)"
+    },
+    {
+      "dim_id": "D3",
+      "target": "promien",
+      "expected_value": 6.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "R6 - promień zaokrąglenia prawego końca ramienia (naroża końca)"
+    },
+    {
+      "dim_id": "D4",
+      "target": "kwadrat",
+      "expected_value": 7.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "□7 - bok kwadratowego otworu przelotowego w środku tarczy R10"
+    },
+    {
+      "dim_id": "D5",
+      "target": "dlugosc_odcinka",
+      "expected_value": 15.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "15 - szerokość ramienia (wysokość prostokątnego profilu w płaszczyźnie XY)"
+    },
+    {
+      "dim_id": "D6",
+      "target": "promien",
+      "expected_value": 1.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "R1 - promień naroży kwadratowego otworu □7"
+    },
+    {
+      "dim_id": "D7",
+      "target": "dlugosc_odcinka",
+      "expected_value": 100.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "100 - odległość środka tarczy od początku zaokrąglenia prawego końca (koniec prostego odcinka ramienia)"
+    },
+    {
+      "dim_id": "D8",
+      "target": "promien",
+      "expected_value": 1.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "R1 - zaokrąglenie krawędzi płyty (krawędzie górnej i dolnej powierzchni na obwodzie), widoczne w widoku z boku"
+    },
+    {
+      "dim_id": "D9",
+      "target": "grubosc",
+      "expected_value": 6.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "6 - grubość płyty dźwigni (wyciągnięcie symetryczne ±3 mm)"
+    }
+  ],
+  "threads": [],
+  "ambiguities": [
+    {
+      "id": "A1",
+      "description": "Na prawym końcu podano R6 przy szerokości ramienia 15 - półkole styczne do obu krawędzi wymagałoby R7.5, więc podane R6 i 15 są ze sobą sprzeczne.",
+      "assumption": "Modelowano koniec ramienia o długości 106 od środka tarczy z zaokrągleniami R6 naroży (na końcu pozostaje płaski odcinek 3 mm); całkowita długość 116 mm i szerokość 15 mm są zachowane.",
+      "severity": "blad_rysunku",
+      "affected_dimensions": [
+        "D3",
+        "D5"
+      ]
+    },
+    {
+      "id": "A2",
+      "description": "R1 w widoku z boku wskazano tylko przy jednym narożu obrysu (lewy górny), brak jednoznacznego zakresu krawędzi.",
+      "assumption": "Przyjęto zaokrąglenie R1 wszystkich krawędzi obrysu górnej i dolnej powierzchni płyty (klocka zaokraglenie_krawedzi na ścianach '>Z' i '<Z').",
+      "severity": "ostrzezenie",
+      "affected_dimensions": [
+        "D8"
+      ]
+    },
+    {
+      "id": "A3",
+      "description": "R6 przejścia tarczy w ramię (D2) zaznaczono strzałką tylko przy górnej krawędzi.",
+      "assumption": "Zaokrąglenie R6 wykonano symetrycznie na górnej i dolnej krawędzi przejścia.",
+      "severity": "info",
+      "affected_dimensions": [
+        "D2"
+      ]
+    }
+  ]
+}

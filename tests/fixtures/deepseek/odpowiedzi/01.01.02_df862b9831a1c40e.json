@@ -1,0 +1,235 @@
+{
+  "drawing_no": "01.01.02",
+  "name": "Podstawa",
+  "part_type": "blacha_gieta",
+  "operations": [
+    {
+      "op": "ceownik",
+      "length": 100.0,
+      "outer_width": 36.0,
+      "height": 28.0,
+      "wall_thickness": 3.0,
+      "web_thickness": 3.0,
+      "open_side": "top",
+      "web_length": 100.0,
+      "side_profile": {
+        "kind": "polygon",
+        "points": [
+          [
+            -50.0,
+            0.0
+          ],
+          [
+            50.0,
+            0.0
+          ],
+          [
+            50.0,
+            6.0
+          ],
+          [
+            28.0,
+            28.0
+          ],
+          [
+            -28.0,
+            28.0
+          ],
+          [
+            -50.0,
+            6.0
+          ]
+        ],
+        "vertex_fillets": [
+          {
+            "point": [
+              -28.0,
+              28.0
+            ],
+            "radius": 10.0
+          },
+          {
+            "point": [
+              28.0,
+              28.0
+            ],
+            "radius": 10.0
+          },
+          {
+            "point": [
+              -50.0,
+              6.0
+            ],
+            "radius": 10.0
+          },
+          {
+            "point": [
+              50.0,
+              6.0
+            ],
+            "radius": 10.0
+          }
+        ]
+      }
+    },
+    {
+      "op": "otwor",
+      "plane": "XZ",
+      "diameter": 10.0,
+      "positions": [
+        [
+          -12.5,
+          16.0
+        ],
+        [
+          12.5,
+          16.0
+        ]
+      ],
+      "depth": null
+    }
+  ],
+  "dimension_bindings": [
+    {
+      "dim_id": "D1",
+      "target": "dlugosc_odcinka",
+      "expected_value": 56.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Długość poziomej górnej krawędzi profilu bocznego"
+    },
+    {
+      "dim_id": "D2",
+      "target": "promien",
+      "expected_value": 10.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Promień R10 górnego prawego naroża profilu bocznego"
+    },
+    {
+      "dim_id": "D3",
+      "target": "otwor_rozstaw",
+      "expected_value": 25.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Rozstaw środków dwóch otworów Ø10 wzdłuż X"
+    },
+    {
+      "dim_id": "D4",
+      "target": "grubosc",
+      "expected_value": 3.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Grubość ścianki bocznej ceownika"
+    },
+    {
+      "dim_id": "D5",
+      "target": "promien",
+      "expected_value": 10.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Promień R10 dolnego prawego naroża profilu bocznego"
+    },
+    {
+      "dim_id": "D6",
+      "target": "otwor_srednica",
+      "expected_value": 10.0,
+      "secondary_value": null,
+      "multiplicity": 2,
+      "thread_spec": null,
+      "description": "Dwa otwory przelotowe Ø10"
+    },
+    {
+      "dim_id": "D7",
+      "target": "gabaryt",
+      "expected_value": 28.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Wysokość całkowita ceownika"
+    },
+    {
+      "dim_id": "D8",
+      "target": "kat_sciecia",
+      "expected_value": 45.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Kąt nachylenia bocznej krawędzi profilu względem poziomu"
+    },
+    {
+      "dim_id": "D9",
+      "target": "grubosc",
+      "expected_value": 3.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Grubość środnika dolnego ceownika"
+    },
+    {
+      "dim_id": "D10",
+      "target": "otwor_wysokosc",
+      "expected_value": 16.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Wysokość środków otworów od podstawy"
+    },
+    {
+      "dim_id": "D11",
+      "target": "dlugosc_odcinka",
+      "expected_value": 6.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Wysokość pionowego odcinka bocznego profilu przy podstawie"
+    },
+    {
+      "dim_id": "D12",
+      "target": "gabaryt",
+      "expected_value": 100.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Długość całkowita ceownika wzdłuż X"
+    },
+    {
+      "dim_id": "D13",
+      "target": "gabaryt",
+      "expected_value": 36.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Szerokość zewnętrzna ceownika wzdłuż Y"
+    }
+  ],
+  "threads": [],
+  "ambiguities": [
+    {
+      "id": "AMB1",
+      "description": "Na rysunku pokazano R10 tylko przy prawym górnym i prawym dolnym narożu profilu bocznego; lewe naroża nie mają osobnego wymiaru.",
+      "assumption": "Przyjęto symetryczne promienie R10 również dla lewego górnego i lewego dolnego naroża profilu bocznego.",
+      "severity": "info",
+      "affected_dimensions": [
+        "D2",
+        "D5"
+      ]
+    },
+    {
+      "id": "AMB2",
+      "description": "Brak wymiaru poziomego położenia par otworów względem środka lub krawędzi; podano tylko rozstaw 25 mm i wysokość 16 mm.",
+      "assumption": "Przyjęto symetryczne położenie otworów względem osi X=0, czyli ich środki w punktach (-12.5, 16) i (12.5, 16).",
+      "severity": "ostrzezenie",
+      "affected_dimensions": [
+        "D3",
+        "D6",
+        "D10"
+      ]
+    }
+  ]
+}

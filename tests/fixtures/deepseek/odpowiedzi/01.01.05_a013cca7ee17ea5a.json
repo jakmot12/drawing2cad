@@ -1,0 +1,163 @@
+{
+  "drawing_no": "01.01.05",
+  "name": "Śruba",
+  "part_type": "toczona",
+  "operations": [
+    {
+      "op": "walec",
+      "axis": "X",
+      "diameter": 10.0,
+      "length": 310.0,
+      "offset": 0.0,
+      "centered": true
+    },
+    {
+      "op": "otwor_kwadratowy",
+      "plane": "YZ",
+      "size": 7.0,
+      "corner_radius": 1.0,
+      "positions": [
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "depth": 10.0
+    },
+    {
+      "op": "fazka",
+      "size": 1.0,
+      "angle_deg": 45.0,
+      "face_selectors": [
+        ">X"
+      ]
+    }
+  ],
+  "dimension_bindings": [
+    {
+      "dim_id": "D1",
+      "target": "gwint_zewnetrzny",
+      "expected_value": 10.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": "M10",
+      "description": "Gwint M10 wału — średnica nominalna Ø10 (wał walcowy)"
+    },
+    {
+      "dim_id": "D2",
+      "target": "promien",
+      "expected_value": 1.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Promień R1 zaokrąglenia naroży kwadratu □7"
+    },
+    {
+      "dim_id": "D3",
+      "target": "gwint_zewnetrzny",
+      "expected_value": 10.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": "M10 LH",
+      "description": "Gwint M10 lewoskrętny na wale"
+    },
+    {
+      "dim_id": "D4",
+      "target": "fazka",
+      "expected_value": 1.0,
+      "secondary_value": 45.0,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Fazka 1x45° na prawym końcu wału (>X)"
+    },
+    {
+      "dim_id": "D5",
+      "target": "kwadrat",
+      "expected_value": 7.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Kwadrat □7 gniazda na prawym końcu"
+    },
+    {
+      "dim_id": "D6",
+      "target": "dlugosc_odcinka",
+      "expected_value": 150.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Pierwszy odcinek gwintu 150 mm (połowa długości gwintowanej)"
+    },
+    {
+      "dim_id": "D7",
+      "target": "dlugosc_odcinka",
+      "expected_value": 150.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Drugi odcinek gwintu 150 mm (druga połowa długości gwintowanej)"
+    },
+    {
+      "dim_id": "D8",
+      "target": "gabaryt",
+      "expected_value": 310.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Długość całkowita wału 310 mm"
+    }
+  ],
+  "threads": [
+    {
+      "spec": "M10 LH",
+      "direction": "lewy",
+      "nominal_diameter": 10.0,
+      "length": 300.0,
+      "is_internal": false,
+      "location": "wał Ø10, od lewego końca do początku gniazda kwadratowego"
+    }
+  ],
+  "ambiguities": [
+    {
+      "id": "AMB1",
+      "description": "Widok z prawej (rzut -X) pokazuje kwadrat □7 z R1 wewnątrz zarysu Ø10, przy jednoczesnym wymiarze M10 = 10 na prawym końcu (zewnętrzna średnica pozostaje Ø10). Zinterpretowano to jako gniazdo (reces) kwadratowe w prawym końcu wału, a nie jako występ.",
+      "assumption": "Kwadrat □7 z R1 modelowany jako gniazdo kwadratowe (otwor_kwadratowy) w prawym końcu wału Ø10.",
+      "severity": "ostrzezenie",
+      "affected_dimensions": [
+        "D5",
+        "D1"
+      ]
+    },
+    {
+      "id": "AMB2",
+      "description": "Głębokość gniazda kwadratowego nie jest zwymiarowana bezpośrednio; z różnicy 310 - (150+150) = 10 mm oraz z długości linii ścianek gniazda w widoku (~10 mm) przyjęto głębokość 10 mm.",
+      "assumption": "Głębokość gniazda kwadratowego = 10 mm; gwint M10 na długości 300 mm (2×150), ostatnie 10 mm to niegwintowany koniec z gniazdem.",
+      "severity": "ostrzezenie",
+      "affected_dimensions": [
+        "D5",
+        "D6",
+        "D7",
+        "D8"
+      ]
+    },
+    {
+      "id": "AMB3",
+      "description": "Fazka 1x45° wskazana jest przy prawym końcu; rysunek nie precyzuje jednoznacznie, czy dotyczy również lewego końca wału.",
+      "assumption": "Fazkę 1x45° wykonano na prawym końcu (>X); lewy koniec bez fazki.",
+      "severity": "ostrzezenie",
+      "affected_dimensions": [
+        "D4"
+      ]
+    },
+    {
+      "id": "AMB4",
+      "description": "Oznaczenie R1 wskazano na jednym narożu kwadratu □7; przyjęto, że dotyczy wszystkich czterech naroży przekroju kwadratowego.",
+      "assumption": "Promień R1 zastosowano do wszystkich 4 naroży gniazda kwadratowego (corner_radius=1).",
+      "severity": "info",
+      "affected_dimensions": [
+        "D2",
+        "D5"
+      ]
+    }
+  ]
+}

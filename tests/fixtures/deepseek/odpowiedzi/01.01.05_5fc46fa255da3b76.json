@@ -1,0 +1,184 @@
+{
+  "drawing_no": "01.01.05",
+  "name": "Śruba",
+  "part_type": "toczona",
+  "operations": [
+    {
+      "op": "walec",
+      "axis": "X",
+      "diameter": 10.0,
+      "length": 150.0,
+      "offset": -80.0,
+      "centered": true
+    },
+    {
+      "op": "walec",
+      "axis": "X",
+      "diameter": 10.0,
+      "length": 150.0,
+      "offset": 80.0,
+      "centered": true
+    },
+    {
+      "op": "czop_kwadratowy",
+      "axis": "X",
+      "size": 7.0,
+      "length": 10.0,
+      "corner_radius": 1.0,
+      "offset": -5.0
+    },
+    {
+      "op": "fazka",
+      "size": 1.0,
+      "angle_deg": 45.0,
+      "face_selectors": [
+        ">X"
+      ]
+    }
+  ],
+  "dimension_bindings": [
+    {
+      "dim_id": "D1",
+      "target": "gwint_zewnetrzny",
+      "expected_value": 10.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": "M10",
+      "description": "Right-hand thread M10 on right segment"
+    },
+    {
+      "dim_id": "D2",
+      "target": "promien",
+      "expected_value": 1.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Corner radius R1 on square section (all corners)"
+    },
+    {
+      "dim_id": "D3",
+      "target": "gwint_zewnetrzny",
+      "expected_value": 10.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": "M10 LH",
+      "description": "Left-hand thread M10 on left segment"
+    },
+    {
+      "dim_id": "D4",
+      "target": "fazka",
+      "expected_value": 1.0,
+      "secondary_value": 45.0,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Chamfer 1x45° on right end"
+    },
+    {
+      "dim_id": "D5",
+      "target": "kwadrat",
+      "expected_value": 7.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Square section size 7x7"
+    },
+    {
+      "dim_id": "D6",
+      "target": "dlugosc_odcinka",
+      "expected_value": 150.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Length of left threaded segment"
+    },
+    {
+      "dim_id": "D7",
+      "target": "dlugosc_odcinka",
+      "expected_value": 150.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Length of right threaded segment"
+    },
+    {
+      "dim_id": "D8",
+      "target": "gabaryt",
+      "expected_value": 310.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Overall length of part"
+    }
+  ],
+  "threads": [
+    {
+      "spec": "M10",
+      "direction": "prawy",
+      "nominal_diameter": 10.0,
+      "length": 150.0,
+      "is_internal": false,
+      "location": "right segment"
+    },
+    {
+      "spec": "M10 LH",
+      "direction": "lewy",
+      "nominal_diameter": 10.0,
+      "length": 150.0,
+      "is_internal": false,
+      "location": "left segment"
+    }
+  ],
+  "ambiguities": [
+    {
+      "id": "A1",
+      "description": "Length of the square section is not explicitly dimensioned. Inferred from overall length 310 and two 150 mm dimensions: 310 - 150 - 150 = 10 mm.",
+      "assumption": "Square section length = 10 mm",
+      "severity": "ostrzezenie",
+      "affected_dimensions": [
+        "D5",
+        "D6",
+        "D7",
+        "D8"
+      ]
+    },
+    {
+      "id": "A2",
+      "description": "The drawing uses break lines in the threaded segments. It is assumed that the 150 mm dimensions refer to the full lengths of the threaded segments from each end to the square section, and the square section is centered between them.",
+      "assumption": "150 mm dimensions are the lengths of the left and right threaded segments; square section is 10 mm in the middle.",
+      "severity": "ostrzezenie",
+      "affected_dimensions": [
+        "D6",
+        "D7",
+        "D8"
+      ]
+    },
+    {
+      "id": "A3",
+      "description": "The chamfer 1x45° is shown only on the right end of the part. It is assumed that only the right end is chamfered.",
+      "assumption": "Only right end has a 1x45° chamfer.",
+      "severity": "info",
+      "affected_dimensions": [
+        "D4"
+      ]
+    },
+    {
+      "id": "A4",
+      "description": "The radius R1 is indicated on one corner of the square cross-section. It is assumed to apply to all four corners of the square section.",
+      "assumption": "All four corners of the square section have radius R1.",
+      "severity": "info",
+      "affected_dimensions": [
+        "D2"
+      ]
+    },
+    {
+      "id": "A5",
+      "description": "The square section is modeled as a square prism (7x7) with corner radius 1, centered on the part axis. The exact orientation of the square relative to the part is assumed to be aligned with the global Y/Z axes as shown in the cross-section.",
+      "assumption": "Square section aligned with Y and Z axes.",
+      "severity": "info",
+      "affected_dimensions": [
+        "D5",
+        "D2"
+      ]
+    }
+  ]
+}

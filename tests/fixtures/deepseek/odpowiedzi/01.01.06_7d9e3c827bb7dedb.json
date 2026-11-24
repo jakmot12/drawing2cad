@@ -1,0 +1,146 @@
+{
+  "drawing_no": "01.01.06",
+  "name": "Ramię",
+  "part_type": "blacha_gieta",
+  "operations": [
+    {
+      "op": "ceownik",
+      "length": 149.0,
+      "outer_width": 30.0,
+      "height": 24.0,
+      "wall_thickness": 3.0,
+      "web_thickness": 3.0,
+      "open_side": "bottom",
+      "web_length": 125.0,
+      "side_profile": {
+        "kind": "slot",
+        "cx": 0.0,
+        "cy": 12.0,
+        "length": 149.0,
+        "width": 24.0
+      }
+    },
+    {
+      "op": "otwor",
+      "plane": "XZ",
+      "diameter": 10.0,
+      "positions": [
+        [
+          -62.5,
+          12.0
+        ],
+        [
+          62.5,
+          12.0
+        ]
+      ],
+      "depth": null
+    }
+  ],
+  "dimension_bindings": [
+    {
+      "dim_id": "D1",
+      "target": "promien",
+      "expected_value": 12.0,
+      "secondary_value": null,
+      "multiplicity": 2,
+      "thread_spec": null,
+      "description": "Promień R12 zaokrąglenia obu końców ceownika; zwymiarowany na jednym końcu, symetrycznie na obu."
+    },
+    {
+      "dim_id": "D2",
+      "target": "otwor_srednica",
+      "expected_value": 10.0,
+      "secondary_value": null,
+      "multiplicity": 2,
+      "thread_spec": null,
+      "description": "Średnica Ø10 dwóch otworów przelotowych przez ścianki boczne."
+    },
+    {
+      "dim_id": "D3",
+      "target": "otwor_rozstaw",
+      "expected_value": 125.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Rozstaw osi otworów w widoku głównym."
+    },
+    {
+      "dim_id": "D4",
+      "target": "dlugosc_odcinka",
+      "expected_value": 125.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Długość środnika (prostego odcinka) między zaokrągleniami; wymiar 125 w widoku bocznym."
+    },
+    {
+      "dim_id": "D5",
+      "target": "gabaryt",
+      "expected_value": 30.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Szerokość zewnętrzna ceownika (30 mm)."
+    },
+    {
+      "dim_id": "D6",
+      "target": "grubosc",
+      "expected_value": 3.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Grubość środnika ceownika (web_thickness = 3 mm)."
+    },
+    {
+      "dim_id": "D7",
+      "target": "grubosc",
+      "expected_value": 3.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Grubość ścianki bocznej ceownika (wall_thickness = 3 mm)."
+    }
+  ],
+  "threads": [],
+  "ambiguities": [
+    {
+      "id": "A1",
+      "description": "Brak jawnego wymiaru długości całkowitej ceownika 149 mm; na rysunku podano tylko rozstaw otworów 125 mm i promień R12.",
+      "assumption": "Przyjęto długość całkowitą 149 mm jako 125 + 2×R12, zgodnie z symetrycznymi zaokrągleniami końców.",
+      "severity": "info",
+      "affected_dimensions": [
+        "D1",
+        "D3"
+      ]
+    },
+    {
+      "id": "A2",
+      "description": "Brak jawnego wymiaru wysokości (głębokości) ceownika 24 mm; podano tylko R12.",
+      "assumption": "Przyjęto wysokość ceownika 24 mm jako 2×R12, zgodnie z profilem ścian bocznych.",
+      "severity": "info",
+      "affected_dimensions": [
+        "D1"
+      ]
+    },
+    {
+      "id": "A3",
+      "description": "Promień R12 zwymiarowano tylko przy jednym końcu profilu.",
+      "assumption": "Przyjęto symetryczne zaokrąglenie R12 na obu końcach.",
+      "severity": "info",
+      "affected_dimensions": [
+        "D1"
+      ]
+    },
+    {
+      "id": "A4",
+      "description": "Rysunek nie wymiaruje położenia otworów w kierunku wysokości ceownika.",
+      "assumption": "Przyjęto, że osie otworów leżą w połowie wysokości ceownika, czyli z = 12 mm, zgodnie z symetrią profili końców.",
+      "severity": "info",
+      "affected_dimensions": [
+        "D2",
+        "D1"
+      ]
+    }
+  ]
+}

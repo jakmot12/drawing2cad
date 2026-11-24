@@ -1,0 +1,60 @@
+{
+  "drawing_no": "01.01.01",
+  "name": "Korona",
+  "part_type": "blacha_gieta",
+  "operations": [
+    {
+      "op": "ceownik",
+      "length": 50.0,
+      "outer_width": 36.0,
+      "height": 28.0,
+      "wall_thickness": 3.0,
+      "web_thickness": 3.0,
+      "open_side": "bottom",
+      "side_profile": {
+        "kind": "polygon",
+        "points": [[-25.0, 0.0], [25.0, 0.0], [25.0, 28.0], [-25.0, 28.0]],
+        "vertex_fillets": [
+          {"point": [-25.0, 0.0], "radius": 10.0},
+          {"point": [25.0, 0.0], "radius": 10.0}
+        ]
+      }
+    },
+    {
+      "op": "wyciecie_v",
+      "plane": "XZ",
+      "center_x": 0.0,
+      "top_z": 28.0,
+      "depth": 7.5,
+      "angle_deg": 90.0,
+      "direction": "down"
+    },
+    {
+      "op": "otwor",
+      "plane": "XZ",
+      "diameter": 10.0,
+      "positions": [[-15.0, 10.0], [15.0, 10.0]]
+    }
+  ],
+  "dimension_bindings": [
+    {"dim_id": "D1", "target": "gabaryt", "expected_value": 50.0, "description": "szerokość w widoku głównym"},
+    {"dim_id": "D2", "target": "gabaryt", "expected_value": 36.0, "description": "szerokość zewnętrzna ceownika"},
+    {"dim_id": "D3", "target": "glebokosc_wyciecia", "expected_value": 7.5, "description": "głębokość wycięcia V"},
+    {"dim_id": "D4", "target": "kat_wyciecia", "expected_value": 90.0, "description": "kąt wycięcia V"},
+    {"dim_id": "D5", "target": "otwor_srednica", "expected_value": 10.0, "multiplicity": 2, "description": "otwory przelotowe 2xØ10"},
+    {"dim_id": "D6", "target": "grubosc", "expected_value": 3.0, "description": "grubość półki górnej"},
+    {"dim_id": "D7", "target": "gabaryt", "expected_value": 28.0, "description": "wysokość całkowita"},
+    {"dim_id": "D8", "target": "grubosc", "expected_value": 3.0, "description": "grubość ścianki bocznej"},
+    {"dim_id": "D9", "target": "promien", "expected_value": 10.0, "description": "dolne naroża R10"}
+  ],
+  "threads": [],
+  "ambiguities": [
+    {
+      "id": "K-N1",
+      "description": "Brak wymiarów położenia otworów 2xØ10 (rozstaw i wysokość osi).",
+      "assumption": "Przyjęto otwory współśrodkowe z zaokrągleniami R10: x = ±15 mm, z = 10 mm od dołu (rozstaw 30 mm).",
+      "severity": "blad_rysunku",
+      "affected_dimensions": ["D5"]
+    }
+  ]
+}

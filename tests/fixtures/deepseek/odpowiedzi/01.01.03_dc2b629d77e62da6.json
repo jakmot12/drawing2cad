@@ -1,0 +1,200 @@
+{
+  "drawing_no": "01.01.03",
+  "name": "Dźwignia",
+  "part_type": "plaska",
+  "operations": [
+    {
+      "op": "plyta_z_profilu",
+      "plane": "XY",
+      "thickness": 6.0,
+      "centered_extrude": false,
+      "shapes": [
+        {
+          "kind": "circle",
+          "cx": 0.0,
+          "cy": 0.0,
+          "radius": 10.0
+        },
+        {
+          "kind": "rect",
+          "cx": 50.0,
+          "cy": 0.0,
+          "width": 100.0,
+          "height": 15.0
+        }
+      ]
+    },
+    {
+      "op": "zaokraglenie_krawedzi",
+      "radius": 6.0,
+      "selector": "near_points",
+      "axis": "Z",
+      "points": [
+        [
+          6.614,
+          7.5
+        ],
+        [
+          6.614,
+          -7.5
+        ]
+      ],
+      "face_selector": null,
+      "tolerance": 0.75
+    },
+    {
+      "op": "zaokraglenie_krawedzi",
+      "radius": 6.0,
+      "selector": "near_points",
+      "axis": "Z",
+      "points": [
+        [
+          100.0,
+          7.5
+        ],
+        [
+          100.0,
+          -7.5
+        ]
+      ],
+      "face_selector": null,
+      "tolerance": 0.75
+    },
+    {
+      "op": "zaokraglenie_krawedzi",
+      "radius": 1.0,
+      "selector": "face_edges",
+      "axis": "Z",
+      "points": [],
+      "face_selector": ">Z or <Z",
+      "tolerance": 0.75
+    },
+    {
+      "op": "otwor_kwadratowy",
+      "plane": "XY",
+      "size": 7.0,
+      "corner_radius": 1.0,
+      "positions": [
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "depth": null
+    }
+  ],
+  "dimension_bindings": [
+    {
+      "dim_id": "D1",
+      "target": "promien",
+      "expected_value": 10.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Promień lewego zakończenia (R10)."
+    },
+    {
+      "dim_id": "D2",
+      "target": "promien",
+      "expected_value": 6.0,
+      "secondary_value": null,
+      "multiplicity": 2,
+      "thread_spec": null,
+      "description": "Promień przejścia między lewym łbem a ramieniem (góra/dół)."
+    },
+    {
+      "dim_id": "D3",
+      "target": "promien",
+      "expected_value": 6.0,
+      "secondary_value": null,
+      "multiplicity": 2,
+      "thread_spec": null,
+      "description": "Promień zaokrąglenia prawego końca (górny i dolny narożnik)."
+    },
+    {
+      "dim_id": "D4",
+      "target": "kwadrat",
+      "expected_value": 7.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Bok otworu kwadratowego □7."
+    },
+    {
+      "dim_id": "D5",
+      "target": "dlugosc_odcinka",
+      "expected_value": 15.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Szerokość ramienia."
+    },
+    {
+      "dim_id": "D6",
+      "target": "promien",
+      "expected_value": 1.0,
+      "secondary_value": null,
+      "multiplicity": 4,
+      "thread_spec": null,
+      "description": "Promień narożników otworu kwadratowego."
+    },
+    {
+      "dim_id": "D7",
+      "target": "dlugosc_odcinka",
+      "expected_value": 100.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Odległość od środka otworu kwadratowego do prawego końca."
+    },
+    {
+      "dim_id": "D8",
+      "target": "promien",
+      "expected_value": 1.0,
+      "secondary_value": null,
+      "multiplicity": 2,
+      "thread_spec": null,
+      "description": "Zaokrąglenie zewnętrznych krawędzi płyty (góra/dół)."
+    },
+    {
+      "dim_id": "D9",
+      "target": "grubosc",
+      "expected_value": 6.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Grubość płyty."
+    }
+  ],
+  "threads": [],
+  "ambiguities": [
+    {
+      "id": "A1",
+      "description": "R6 na prawym końcu może oznaczać pełny promień półokrągłego zakończenia, ale przy szerokości ramienia 15 pełne półkole wymagałoby R7.5.",
+      "assumption": "Przyjęto, że R6 to promienie zaokrąglenia dwóch prawych narożników, pozostawiające krótki odcinek prosty na końcu.",
+      "severity": "ostrzezenie",
+      "affected_dimensions": [
+        "D3",
+        "D5"
+      ]
+    },
+    {
+      "id": "A2",
+      "description": "R6 przejścia między łbem a ramieniem jest pokazane tylko przy górnej krawędzi.",
+      "assumption": "Przyjęto symetryczne R6 również na dolnej krawędzi przejścia.",
+      "severity": "info",
+      "affected_dimensions": [
+        "D2"
+      ]
+    },
+    {
+      "id": "A3",
+      "description": "R1 w widoku z boku wskazano przy jednym narożniku płyty.",
+      "assumption": "Przyjęto zaokrąglenie R1 wszystkich zewnętrznych krawędzi górnej i dolnej płaszczyzny płyty.",
+      "severity": "info",
+      "affected_dimensions": [
+        "D8"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "drawing_no": "01.01.02",
+  "name": "Podstawa",
+  "part_type": "blacha_gieta",
+  "operations": [
+    {
+      "op": "ceownik",
+      "length": 100.0,
+      "outer_width": 36.0,
+      "height": 28.0,
+      "wall_thickness": 3.0,
+      "web_thickness": 3.0,
+      "open_side": "top",
+      "side_profile": {
+        "kind": "polygon",
+        "points": [[-50.0, 0.0], [50.0, 0.0], [50.0, 6.0], [28.0, 28.0], [-28.0, 28.0], [-50.0, 6.0]],
+        "vertex_fillets": [
+          {"point": [50.0, 6.0], "radius": 10.0},
+          {"point": [28.0, 28.0], "radius": 10.0},
+          {"point": [-28.0, 28.0], "radius": 10.0},
+          {"point": [-50.0, 6.0], "radius": 10.0}
+        ]
+      }
+    },
+    {
+      "op": "otwor",
+      "plane": "XZ",
+      "diameter": 10.0,
+      "positions": [[-12.5, 16.0], [12.5, 16.0]]
+    }
+  ],
+  "dimension_bindings": [
+    {"dim_id": "D1", "target": "dlugosc_odcinka", "expected_value": 56.0, "description": "długość górnej krawędzi przed zaokrągleniem"},
+    {"dim_id": "D2", "target": "promien", "expected_value": 10.0, "description": "zaokrąglenia górne R10"},
+    {"dim_id": "D3", "target": "otwor_rozstaw", "expected_value": 25.0, "description": "rozstaw osi otworów"},
+    {"dim_id": "D4", "target": "grubosc", "expected_value": 3.0, "description": "grubość ścianki bocznej"},
+    {"dim_id": "D5", "target": "promien", "expected_value": 10.0, "description": "zaokrąglenia boczne R10"},
+    {"dim_id": "D6", "target": "otwor_srednica", "expected_value": 10.0, "multiplicity": 2, "description": "otwory przelotowe 2xØ10"},
+    {"dim_id": "D7", "target": "gabaryt", "expected_value": 28.0, "description": "wysokość całkowita"},
+    {"dim_id": "D8", "target": "kat_sciecia", "expected_value": 45.0, "description": "kąt ścięcia boków 45°"},
+    {"dim_id": "D9", "target": "grubosc", "expected_value": 3.0, "description": "grubość dna"},
+    {"dim_id": "D10", "target": "otwor_wysokosc", "expected_value": 16.0, "description": "wysokość osi otworów od podstawy"},
+    {"dim_id": "D11", "target": "dlugosc_odcinka", "expected_value": 6.0, "description": "wysokość pionowego odcinka boku"},
+    {"dim_id": "D12", "target": "gabaryt", "expected_value": 100.0, "description": "długość podstawy"},
+    {"dim_id": "D13", "target": "gabaryt", "expected_value": 36.0, "description": "szerokość zewnętrzna ceownika"}
+  ],
+  "threads": [],
+  "ambiguities": []
+}

@@ -1,0 +1,185 @@
+{
+  "drawing_no": "01.01.04",
+  "name": "Ośka",
+  "part_type": "toczona",
+  "operations": [
+    {
+      "op": "czop_kwadratowy",
+      "axis": "Z",
+      "size": 16.0,
+      "length": 21.0,
+      "corner_radius": 0.0,
+      "offset": 15.0
+    },
+    {
+      "op": "walec",
+      "axis": "Z",
+      "diameter": 16.0,
+      "length": 15.0,
+      "offset": 36.0,
+      "centered": false
+    },
+    {
+      "op": "walec",
+      "axis": "Z",
+      "diameter": 10.0,
+      "length": 15.0,
+      "offset": 0.0,
+      "centered": false
+    },
+    {
+      "op": "otwor",
+      "plane": "XZ",
+      "diameter": 10.0,
+      "positions": [
+        [
+          0.0,
+          25.5
+        ]
+      ],
+      "depth": null
+    },
+    {
+      "op": "fazka",
+      "size": 1.0,
+      "angle_deg": 45.0,
+      "face_selectors": [
+        "<Z"
+      ]
+    }
+  ],
+  "dimension_bindings": [
+    {
+      "dim_id": "D1",
+      "target": "walec_srednica",
+      "expected_value": 16.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Średnica Ø16 górnego walca (i szerokość środkowego klocka)"
+    },
+    {
+      "dim_id": "D2",
+      "target": "dlugosc_odcinka",
+      "expected_value": 15.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Długość górnej części (walec Ø16)"
+    },
+    {
+      "dim_id": "D3",
+      "target": "dlugosc_odcinka",
+      "expected_value": 21.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Wysokość środkowego klocka z otworem poprzecznym"
+    },
+    {
+      "dim_id": "D4",
+      "target": "gabaryt",
+      "expected_value": 51.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Długość całkowita części wzdłuż osi Z"
+    },
+    {
+      "dim_id": "D5",
+      "target": "gwint_wewnetrzny",
+      "expected_value": 10.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": "M10",
+      "description": "Otwór poprzeczny M10 w środkowym klocku"
+    },
+    {
+      "dim_id": "D6",
+      "target": "gwint_zewnetrzny",
+      "expected_value": 10.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": "M10",
+      "description": "Gwint zewnętrzny M10 dolnego trzpienia"
+    },
+    {
+      "dim_id": "D7",
+      "target": "fazka",
+      "expected_value": 1.0,
+      "secondary_value": 45.0,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Fazka 1x45° na dolnym końcu"
+    }
+  ],
+  "threads": [
+    {
+      "spec": "M10",
+      "direction": "prawy",
+      "nominal_diameter": 10.0,
+      "length": 15.0,
+      "is_internal": false,
+      "location": "dolny trzpień (koniec Z=0..15)"
+    },
+    {
+      "spec": "M10",
+      "direction": "prawy",
+      "nominal_diameter": 10.0,
+      "length": null,
+      "is_internal": true,
+      "location": "otwór poprzeczny w środkowym klocku (oś Y)"
+    }
+  ],
+  "ambiguities": [
+    {
+      "id": "A1",
+      "description": "Rysunek pokazuje środkowy klocek o szerokości równej gabarytowi (16) oraz węższe końce. Ø16 przypisano do górnego walca, środkowy klocek przyjęto jako kwadrat 16x16 (jego wymiar nie jest osobno zwymiarowany), a dolny koniec jako Ø10 (gwint M10).",
+      "assumption": "Środkowy klocek = kwadrat 16x16; góra = Ø16; dół = Ø10 (M10)",
+      "severity": "ostrzezenie",
+      "affected_dimensions": [
+        "D1",
+        "D6"
+      ]
+    },
+    {
+      "id": "A2",
+      "description": "Brak jawnego wymiaru długości dolnego trzpienia. Wyliczono 51-15-21=15 mm.",
+      "assumption": "Długość dolnego trzpienia = 15 mm",
+      "severity": "info",
+      "affected_dimensions": [
+        "D2",
+        "D3",
+        "D4"
+      ]
+    },
+    {
+      "id": "A3",
+      "description": "Fazka 1x45° wskazana tylko na dolnym końcu. Przyjęto pojedynczą fazkę na końcu Z=0; drugi koniec może również wymagać fazki.",
+      "assumption": "Fazka tylko na dolnym końcu (<Z)",
+      "severity": "info",
+      "affected_dimensions": [
+        "D7"
+      ]
+    },
+    {
+      "id": "A4",
+      "description": "Otwór M10 w środkowym klocku potraktowano jako gwintowany otwór przelotowy wzdłuż osi Y, wyśrodkowany na wysokości klocka (z=25.5); głębokość i charakter gwintu wywnioskowane z oznaczenia.",
+      "assumption": "Otwór przelotowy, gwintowany, w osi Y na środku klocka",
+      "severity": "ostrzezenie",
+      "affected_dimensions": [
+        "D5",
+        "D3"
+      ]
+    },
+    {
+      "id": "A5",
+      "description": "Ø16 zwymiarowano u góry; przyjęto, że dotyczy górnego walca, a szerokość środkowego klocka jest mu równa (16).",
+      "assumption": "Szerokość klocka = 16 mm (równa Ø16)",
+      "severity": "info",
+      "affected_dimensions": [
+        "D1"
+      ]
+    }
+  ]
+}

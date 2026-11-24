@@ -1,0 +1,149 @@
+{
+  "drawing_no": "01.01.06",
+  "name": "Ramię",
+  "part_type": "blacha_gieta",
+  "operations": [
+    {
+      "op": "ceownik",
+      "length": 149.0,
+      "outer_width": 30.0,
+      "height": 24.0,
+      "wall_thickness": 3.0,
+      "web_thickness": 3.0,
+      "open_side": "bottom",
+      "web_length": 125.0,
+      "side_profile": {
+        "kind": "slot",
+        "cx": 0.0,
+        "cy": 12.0,
+        "length": 149.0,
+        "width": 24.0
+      }
+    },
+    {
+      "op": "otwor",
+      "plane": "XZ",
+      "diameter": 10.0,
+      "positions": [
+        [
+          -62.5,
+          12.0
+        ],
+        [
+          62.5,
+          12.0
+        ]
+      ],
+      "depth": null
+    }
+  ],
+  "dimension_bindings": [
+    {
+      "dim_id": "D1",
+      "target": "promien",
+      "expected_value": 12.0,
+      "secondary_value": null,
+      "multiplicity": 2,
+      "thread_spec": null,
+      "description": "Promień R12 zaokrąglenia obu końców ścianek bocznych (profil boczny slot 149x24, półkole R12=24/2, środki łuków w osi otworów)"
+    },
+    {
+      "dim_id": "D2",
+      "target": "otwor_srednica",
+      "expected_value": 10.0,
+      "secondary_value": null,
+      "multiplicity": 2,
+      "thread_spec": null,
+      "description": "Ø10 otworów przelotowych przez obie ścianki boczne, osie w płaszczyźnie XZ na wysokości 12 mm"
+    },
+    {
+      "dim_id": "D3",
+      "target": "otwor_rozstaw",
+      "expected_value": 125.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Rozstaw 125 mm między osiami otworów Ø10 wzdłuż długości ramienia (widok z boku ścianki)"
+    },
+    {
+      "dim_id": "D4",
+      "target": "dlugosc_odcinka",
+      "expected_value": 125.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Długość środnika (web_length) = 125 mm; końce środnika w x=±62.5, czyli 12 mm od końców ścianek"
+    },
+    {
+      "dim_id": "D5",
+      "target": "gabaryt",
+      "expected_value": 30.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Szerokość zewnętrzna ceownika (outer_width) = 30 mm, ścianki 3 mm na zewnątrz"
+    },
+    {
+      "dim_id": "D6",
+      "target": "grubosc",
+      "expected_value": 3.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Grubość środnika (web_thickness) = 3 mm, środnik u góry (otwarcie do dołu)"
+    },
+    {
+      "dim_id": "D7",
+      "target": "grubosc",
+      "expected_value": 3.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Grubość ścianek bocznych (wall_thickness) = 3 mm"
+    }
+  ],
+  "threads": [],
+  "ambiguities": [
+    {
+      "id": "A1",
+      "description": "Dolny otwór nie ma własnego wymiaru średnicy na rysunku, jedynie górny jest opisany jako Ø10.",
+      "assumption": "Przyjęto, że oba otwory są identyczne: Ø10 przelotowe przez obie ścianki, w środkach łuków R12 (x=±62.5, z=12).",
+      "severity": "ostrzezenie",
+      "affected_dimensions": [
+        "D2",
+        "D3"
+      ]
+    },
+    {
+      "id": "A2",
+      "description": "Wymiar R12 jest wskazany tylko przy jednym (górnym) końcu; drugi koniec nie ma opisu.",
+      "assumption": "Przyjęto symetrię obu końców ścianek bocznych: półkola R12 na obu końcach profilu bocznego.",
+      "severity": "info",
+      "affected_dimensions": [
+        "D1"
+      ]
+    },
+    {
+      "id": "A3",
+      "description": "Wysokość ceownika (24 mm) i długość całkowita (149 mm) nie są wymiarowane wprost na rysunku.",
+      "assumption": "Wysokość = 2×R12 = 24 mm, długość całkowita = 125 + 2×R12 = 149 mm (zgodnie z gabarytem widoku i położeniem końców środnika 12 mm od obu końców).",
+      "severity": "info",
+      "affected_dimensions": [
+        "D1",
+        "D3",
+        "D4"
+      ]
+    },
+    {
+      "id": "A4",
+      "description": "Wymiar 30 mm (szerokość zewnętrzna ceownika) nie pokrywa się z szerokością widoku z boku ścianki (2×R12 = 24 mm).",
+      "assumption": "Przyjęto, że 30 mm jest szerokością zewnętrzną ceownika mierzoną w poprzek (Y), a 24 mm to wysokość kanału wynikająca z R12; ścianki 3 mm leżą na zewnątrz szerokości 24 mm.",
+      "severity": "info",
+      "affected_dimensions": [
+        "D1",
+        "D5",
+        "D7"
+      ]
+    }
+  ]
+}

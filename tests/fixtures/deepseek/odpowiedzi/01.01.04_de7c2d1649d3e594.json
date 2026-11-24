@@ -1,0 +1,194 @@
+{
+  "drawing_no": "01.01.04",
+  "name": "Ośka",
+  "part_type": "toczona",
+  "operations": [
+    {
+      "op": "walec",
+      "axis": "Z",
+      "diameter": 16.0,
+      "length": 21.0,
+      "offset": 15.0,
+      "centered": false
+    },
+    {
+      "op": "walec",
+      "axis": "Z",
+      "diameter": 10.0,
+      "length": 15.0,
+      "offset": 0.0,
+      "centered": false
+    },
+    {
+      "op": "walec",
+      "axis": "Z",
+      "diameter": 10.0,
+      "length": 15.0,
+      "offset": 36.0,
+      "centered": false
+    },
+    {
+      "op": "otwor",
+      "plane": "XZ",
+      "diameter": 10.0,
+      "positions": [
+        [
+          0.0,
+          25.5
+        ]
+      ],
+      "depth": null
+    },
+    {
+      "op": "fazka",
+      "size": 1.0,
+      "angle_deg": 45.0,
+      "face_selectors": [
+        "<Z"
+      ]
+    }
+  ],
+  "dimension_bindings": [
+    {
+      "dim_id": "D1",
+      "target": "walec_srednica",
+      "expected_value": 16.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Ø16 – średnica walcowego korpusu środkowego (widok 16 mm szerokości)"
+    },
+    {
+      "dim_id": "D2",
+      "target": "dlugosc_odcinka",
+      "expected_value": 15.0,
+      "secondary_value": null,
+      "multiplicity": 2,
+      "thread_spec": null,
+      "description": "Długość czopa gwintowanego ponad korpusem; symetrycznie odnosi się także do czopa dolnego"
+    },
+    {
+      "dim_id": "D3",
+      "target": "dlugosc_odcinka",
+      "expected_value": 21.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Wysokość (długość) korpusu walcowego wzdłuż osi Z (z=15..36)"
+    },
+    {
+      "dim_id": "D4",
+      "target": "gabaryt",
+      "expected_value": 51.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Długość całkowita części (15 + 21 + 15)"
+    },
+    {
+      "dim_id": "D5",
+      "target": "gwint_wewnetrzny",
+      "expected_value": 10.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": "M10",
+      "description": "Otwór gwintowany M10 poprzeczny w korpusie (widoczny jako okrąg ze zwojami, oś prostopadła do widoku)"
+    },
+    {
+      "dim_id": "D6",
+      "target": "gwint_zewnetrzny",
+      "expected_value": 10.0,
+      "secondary_value": null,
+      "multiplicity": 2,
+      "thread_spec": "M10",
+      "description": "Gwint M10 na czopie dolnym (i analogicznie górnym – jednakowe linie gwintu)"
+    },
+    {
+      "dim_id": "D7",
+      "target": "fazka",
+      "expected_value": 1.0,
+      "secondary_value": 45.0,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Fazka 1x45° na końcu dolnego czopa (płaszczyzna <Z)"
+    }
+  ],
+  "threads": [
+    {
+      "spec": "M10",
+      "direction": "prawy",
+      "nominal_diameter": 10.0,
+      "length": 15.0,
+      "is_internal": false,
+      "location": "czop dolny z=0..15"
+    },
+    {
+      "spec": "M10",
+      "direction": "prawy",
+      "nominal_diameter": 10.0,
+      "length": 15.0,
+      "is_internal": false,
+      "location": "czop górny z=36..51"
+    },
+    {
+      "spec": "M10",
+      "direction": "prawy",
+      "nominal_diameter": 10.0,
+      "length": 16.0,
+      "is_internal": true,
+      "location": "otwór poprzeczny w korpusie, oś Y, z=25.5"
+    }
+  ],
+  "ambiguities": [
+    {
+      "id": "A1",
+      "description": "Długość dolnego czopa nie jest zwymiarowana wprost; z wymiarów 51, 21 i 15 wynika 51-21-15 = 15 mm.",
+      "assumption": "Przyjęto długość dolnego czopa 15 mm (symetria z czopem górnym).",
+      "severity": "info",
+      "affected_dimensions": [
+        "D2",
+        "D3",
+        "D4"
+      ]
+    },
+    {
+      "id": "A2",
+      "description": "Oznaczenie gwintu M10 podano tylko przy dolnym czopie; górny czop ma identyczne linie gwintu, ale bez opisu.",
+      "assumption": "Przyjęto gwint M10 na obu czopach (część symetryczna).",
+      "severity": "ostrzezenie",
+      "affected_dimensions": [
+        "D6",
+        "D2"
+      ]
+    },
+    {
+      "id": "A3",
+      "description": "Korpus widoczny jest w widoku jako prostokąt 16 x 21; wymiar opisany jest znakiem średnicowym Ø16.",
+      "assumption": "Przyjęto korpus jako walec Ø16 x 21 mm (nie prostopadłościan).",
+      "severity": "info",
+      "affected_dimensions": [
+        "D1",
+        "D3"
+      ]
+    },
+    {
+      "id": "A4",
+      "description": "Brak wymiaru głębokości otworu M10 w korpusie; otwór narysowany jako przelotowy przez całą szerokość korpusu (16 mm).",
+      "assumption": "Przyjęto otwór przelotowy M10 przez korpus.",
+      "severity": "info",
+      "affected_dimensions": [
+        "D5"
+      ]
+    },
+    {
+      "id": "A5",
+      "description": "Na rysunku nie podano kierunku/typu gwintu (prawy/lewy).",
+      "assumption": "Przyjęto gwinty prawne (domyślne).",
+      "severity": "info",
+      "affected_dimensions": [
+        "D5",
+        "D6"
+      ]
+    }
+  ]
+}

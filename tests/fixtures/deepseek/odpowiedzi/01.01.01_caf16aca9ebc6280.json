@@ -1,0 +1,195 @@
+{
+  "drawing_no": "01.01.01",
+  "name": "Korona",
+  "part_type": "blacha_gieta",
+  "operations": [
+    {
+      "op": "ceownik",
+      "length": 50.0,
+      "outer_width": 36.0,
+      "height": 28.0,
+      "wall_thickness": 3.0,
+      "web_thickness": 3.0,
+      "open_side": "bottom",
+      "web_length": null,
+      "side_profile": {
+        "kind": "polygon",
+        "points": [
+          [
+            -25.0,
+            0.0
+          ],
+          [
+            25.0,
+            0.0
+          ],
+          [
+            25.0,
+            28.0
+          ],
+          [
+            -25.0,
+            28.0
+          ]
+        ],
+        "vertex_fillets": [
+          {
+            "point": [
+              -25.0,
+              0.0
+            ],
+            "radius": 10.0
+          },
+          {
+            "point": [
+              25.0,
+              0.0
+            ],
+            "radius": 10.0
+          }
+        ]
+      }
+    },
+    {
+      "op": "wyciecie_v",
+      "plane": "XZ",
+      "center_x": 0.0,
+      "top_z": 28.0,
+      "depth": 7.5,
+      "angle_deg": 90.0,
+      "direction": "down"
+    },
+    {
+      "op": "otwor",
+      "plane": "XZ",
+      "diameter": 10.0,
+      "positions": [
+        [
+          -15.0,
+          10.0
+        ],
+        [
+          15.0,
+          10.0
+        ]
+      ],
+      "depth": null
+    }
+  ],
+  "dimension_bindings": [
+    {
+      "dim_id": "D1",
+      "target": "gabaryt",
+      "expected_value": 50.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Overall length along X (channel length)"
+    },
+    {
+      "dim_id": "D2",
+      "target": "gabaryt",
+      "expected_value": 36.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Overall width along Y (outer channel width)"
+    },
+    {
+      "dim_id": "D3",
+      "target": "glebokosc_wyciecia",
+      "expected_value": 7.5,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Depth of central V notch from top edge"
+    },
+    {
+      "dim_id": "D4",
+      "target": "kat_wyciecia",
+      "expected_value": 90.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Included angle of central V notch"
+    },
+    {
+      "dim_id": "D5",
+      "target": "otwor_srednica",
+      "expected_value": 10.0,
+      "secondary_value": null,
+      "multiplicity": 2,
+      "thread_spec": null,
+      "description": "Two through holes Ø10 in side walls"
+    },
+    {
+      "dim_id": "D6",
+      "target": "grubosc",
+      "expected_value": 3.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Web (top plate) thickness"
+    },
+    {
+      "dim_id": "D7",
+      "target": "gabaryt",
+      "expected_value": 28.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Overall height along Z"
+    },
+    {
+      "dim_id": "D8",
+      "target": "grubosc",
+      "expected_value": 3.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Side wall thickness"
+    },
+    {
+      "dim_id": "D9",
+      "target": "promien",
+      "expected_value": 10.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Bottom corner radius R10 (both corners)"
+    }
+  ],
+  "threads": [],
+  "ambiguities": [
+    {
+      "id": "A1",
+      "description": "Hole locations (horizontal spacing and vertical height) are not dimensioned on the drawing; only 2xØ10 is given.",
+      "assumption": "Holes are placed symmetrically about the vertical centerline and concentric with the R10 bottom corner arc centers, i.e. at x=±(50/2-10)=±15, z=10 (bottom edge at z=0).",
+      "severity": "ostrzezenie",
+      "affected_dimensions": [
+        "D5",
+        "D1",
+        "D9"
+      ]
+    },
+    {
+      "id": "A2",
+      "description": "R10 is indicated on only one bottom corner in the drawing.",
+      "assumption": "Both bottom corners are rounded with R10, taking advantage of part symmetry.",
+      "severity": "info",
+      "affected_dimensions": [
+        "D9"
+      ]
+    },
+    {
+      "id": "A3",
+      "description": "The V notch is shown only in the front view; the drawing does not explicitly state whether it cuts only the visible side wall or the full channel width.",
+      "assumption": "The V notch is cut through the entire Y width (both side walls and the top web) as a wyciecie_v operation on plane XZ.",
+      "severity": "info",
+      "affected_dimensions": [
+        "D3",
+        "D4"
+      ]
+    }
+  ]
+}

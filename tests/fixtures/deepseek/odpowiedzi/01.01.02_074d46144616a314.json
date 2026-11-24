@@ -1,0 +1,253 @@
+{
+  "drawing_no": "01.01.02",
+  "name": "Podstawa",
+  "part_type": "blacha_gieta",
+  "operations": [
+    {
+      "op": "ceownik",
+      "length": 100.0,
+      "outer_width": 36.0,
+      "height": 28.0,
+      "wall_thickness": 3.0,
+      "web_thickness": 3.0,
+      "open_side": "top",
+      "web_length": null,
+      "side_profile": {
+        "kind": "polygon",
+        "points": [
+          [
+            -50.0,
+            0.0
+          ],
+          [
+            50.0,
+            0.0
+          ],
+          [
+            50.0,
+            6.0
+          ],
+          [
+            28.0,
+            28.0
+          ],
+          [
+            -28.0,
+            28.0
+          ],
+          [
+            -50.0,
+            6.0
+          ]
+        ],
+        "vertex_fillets": [
+          {
+            "point": [
+              50.0,
+              6.0
+            ],
+            "radius": 10.0
+          },
+          {
+            "point": [
+              28.0,
+              28.0
+            ],
+            "radius": 10.0
+          },
+          {
+            "point": [
+              -28.0,
+              28.0
+            ],
+            "radius": 10.0
+          },
+          {
+            "point": [
+              -50.0,
+              6.0
+            ],
+            "radius": 10.0
+          }
+        ]
+      }
+    },
+    {
+      "op": "otwor",
+      "plane": "XZ",
+      "diameter": 10.0,
+      "positions": [
+        [
+          -12.5,
+          16.0
+        ],
+        [
+          12.5,
+          16.0
+        ]
+      ],
+      "depth": null
+    }
+  ],
+  "dimension_bindings": [
+    {
+      "dim_id": "D1",
+      "target": "dlugosc_odcinka",
+      "expected_value": 56.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Szerokość płaskiego odcinka górnego (między zaokrągleniami R10) w profilu ścianek"
+    },
+    {
+      "dim_id": "D2",
+      "target": "promien",
+      "expected_value": 10.0,
+      "secondary_value": null,
+      "multiplicity": 2,
+      "thread_spec": null,
+      "description": "R10 narożników górnych profilu ścianek (x=±28, z=28)"
+    },
+    {
+      "dim_id": "D3",
+      "target": "otwor_rozstaw",
+      "expected_value": 25.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Rozstaw osi dwóch otworów Ø10 (symetrycznie ±12.5 od środka)"
+    },
+    {
+      "dim_id": "D4",
+      "target": "grubosc",
+      "expected_value": 3.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Grubość ścianek bocznych ceownika (wymiar 3 w widoku z boku)"
+    },
+    {
+      "dim_id": "D5",
+      "target": "promien",
+      "expected_value": 10.0,
+      "secondary_value": null,
+      "multiplicity": 2,
+      "thread_spec": null,
+      "description": "R10 narożników dolnych profilu ścianek (x=±50, z=6)"
+    },
+    {
+      "dim_id": "D6",
+      "target": "otwor_srednica",
+      "expected_value": 10.0,
+      "secondary_value": null,
+      "multiplicity": 2,
+      "thread_spec": null,
+      "description": "2xØ10 otwory przelotowe w ściankach, na wysokości 16"
+    },
+    {
+      "dim_id": "D7",
+      "target": "gabaryt",
+      "expected_value": 28.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Wysokość całkowita ceownika (6 + 22 przy 45°)"
+    },
+    {
+      "dim_id": "D8",
+      "target": "kat_sciecia",
+      "expected_value": 45.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Kąt 45° ścięcia skośnych krawędzi profilu ścianek"
+    },
+    {
+      "dim_id": "D9",
+      "target": "grubosc",
+      "expected_value": 3.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Grubość środnika (półki dolnej) ceownika"
+    },
+    {
+      "dim_id": "D10",
+      "target": "otwor_wysokosc",
+      "expected_value": 16.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Wysokość osi otworów Ø10 nad dolną płaszczyzną (z=16)"
+    },
+    {
+      "dim_id": "D11",
+      "target": "dlugosc_odcinka",
+      "expected_value": 6.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Pionowy odcinek krawędzi bocznej przed przejściem w 45° (z=0..6)"
+    },
+    {
+      "dim_id": "D12",
+      "target": "gabaryt",
+      "expected_value": 100.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Długość całkowita części wzdłuż osi X"
+    },
+    {
+      "dim_id": "D13",
+      "target": "gabaryt",
+      "expected_value": 36.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Szerokość zewnętrzna ceownika wzdłuż osi Y"
+    }
+  ],
+  "threads": [],
+  "ambiguities": [
+    {
+      "id": "A1",
+      "description": "Na rysunku widoczne są dwa oznaczenia R10 (górny i dolny narożnik po prawej stronie). Brak jawnych oznaczeń dla lewych narożników.",
+      "assumption": "Przyjęto symetrię części: R10 zastosowano do wszystkich czterech narożników profilu ścianek (±28, 28) i (±50, 6).",
+      "severity": "ostrzezenie",
+      "affected_dimensions": [
+        "D2",
+        "D5"
+      ]
+    },
+    {
+      "id": "A2",
+      "description": "Brak wymiaru odsunięcia otworów Ø10 od środka części; podany jest tylko rozstaw 25.",
+      "assumption": "Otwory rozmieszczono symetrycznie względem osi Y: x = -12.5 i x = +12.5.",
+      "severity": "ostrzezenie",
+      "affected_dimensions": [
+        "D3",
+        "D6"
+      ]
+    },
+    {
+      "id": "A3",
+      "description": "Brak wymiaru długości środnika; widok z przodu pokazuje dolną półkę na całej długości.",
+      "assumption": "Przyjęto środnik na całej długości 100 mm (web_length = length).",
+      "severity": "info",
+      "affected_dimensions": [
+        "D12"
+      ]
+    },
+    {
+      "id": "A4",
+      "description": "Otwory Ø10 widoczne w widoku z przodu; brak informacji o głębokości, rysunek sugeruje przelotowe przez obie ścianki.",
+      "assumption": "Modelowano otwory przelotowe przez całą bryłę (obie ścianki).",
+      "severity": "info",
+      "affected_dimensions": [
+        "D6",
+        "D10"
+      ]
+    }
+  ]
+}

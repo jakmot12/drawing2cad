@@ -1,0 +1,251 @@
+{
+  "drawing_no": "01.01.02",
+  "name": "Podstawa",
+  "part_type": "blacha_gieta",
+  "operations": [
+    {
+      "op": "ceownik",
+      "length": 100.0,
+      "outer_width": 36.0,
+      "height": 28.0,
+      "wall_thickness": 3.0,
+      "web_thickness": 3.0,
+      "open_side": "top",
+      "web_length": 100.0,
+      "side_profile": {
+        "kind": "polygon",
+        "points": [
+          [
+            -50.0,
+            0.0
+          ],
+          [
+            50.0,
+            0.0
+          ],
+          [
+            50.0,
+            6.0
+          ],
+          [
+            28.0,
+            28.0
+          ],
+          [
+            -28.0,
+            28.0
+          ],
+          [
+            -50.0,
+            6.0
+          ]
+        ],
+        "vertex_fillets": [
+          {
+            "point": [
+              28.0,
+              28.0
+            ],
+            "radius": 10.0
+          },
+          {
+            "point": [
+              -28.0,
+              28.0
+            ],
+            "radius": 10.0
+          },
+          {
+            "point": [
+              50.0,
+              6.0
+            ],
+            "radius": 10.0
+          },
+          {
+            "point": [
+              -50.0,
+              6.0
+            ],
+            "radius": 10.0
+          }
+        ]
+      }
+    },
+    {
+      "op": "otwor",
+      "plane": "XZ",
+      "diameter": 10.0,
+      "positions": [
+        [
+          -12.5,
+          16.0
+        ],
+        [
+          12.5,
+          16.0
+        ]
+      ],
+      "depth": null
+    }
+  ],
+  "dimension_bindings": [
+    {
+      "dim_id": "D1",
+      "target": "dlugosc_odcinka",
+      "expected_value": 56.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Długość górnej płaskiej krawędzi profilu bocznego (od x=-28 do x=28)."
+    },
+    {
+      "dim_id": "D2",
+      "target": "promien",
+      "expected_value": 10.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Promień R10 zaokrąglenia górnego naroża profilu bocznego."
+    },
+    {
+      "dim_id": "D3",
+      "target": "otwor_rozstaw",
+      "expected_value": 25.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Odległość między osiami dwóch otworów Ø10."
+    },
+    {
+      "dim_id": "D4",
+      "target": "grubosc",
+      "expected_value": 3.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Grubość ścianki bocznej ceownika w kierunku Y."
+    },
+    {
+      "dim_id": "D5",
+      "target": "promien",
+      "expected_value": 10.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Promień R10 zaokrąglenia dolnego naroża profilu bocznego (przejście pionu w skos)."
+    },
+    {
+      "dim_id": "D6",
+      "target": "otwor_srednica",
+      "expected_value": 10.0,
+      "secondary_value": null,
+      "multiplicity": 2,
+      "thread_spec": null,
+      "description": "Dwa otwory o średnicy Ø10."
+    },
+    {
+      "dim_id": "D7",
+      "target": "gabaryt",
+      "expected_value": 28.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Wysokość całkowita ceownika w kierunku Z."
+    },
+    {
+      "dim_id": "D8",
+      "target": "kat_sciecia",
+      "expected_value": 45.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Kąt nachylenia skosu bocznego względem poziomu."
+    },
+    {
+      "dim_id": "D9",
+      "target": "grubosc",
+      "expected_value": 3.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Grubość środnika (dna) ceownika w kierunku Z."
+    },
+    {
+      "dim_id": "D10",
+      "target": "otwor_wysokosc",
+      "expected_value": 16.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Wysokość środków otworów od podstawy w kierunku Z."
+    },
+    {
+      "dim_id": "D11",
+      "target": "dlugosc_odcinka",
+      "expected_value": 6.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Wysokość pionowego odcinka bocznego od podstawy do początku skosu."
+    },
+    {
+      "dim_id": "D12",
+      "target": "gabaryt",
+      "expected_value": 100.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Długość całkowita części w kierunku X."
+    },
+    {
+      "dim_id": "D13",
+      "target": "gabaryt",
+      "expected_value": 36.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Szerokość zewnętrzna ceownika w kierunku Y."
+    }
+  ],
+  "threads": [],
+  "ambiguities": [
+    {
+      "id": "A1",
+      "description": "Na rysunku widoczne są oznaczenia R10 tylko po prawej stronie profilu; lewe naroża nie mają osobnych wymiarów.",
+      "assumption": "Przyjęto symetrię profilu i zastosowano R10 również do lewego górnego i lewego dolnego naroża skosu.",
+      "severity": "info",
+      "affected_dimensions": [
+        "D2",
+        "D5"
+      ]
+    },
+    {
+      "id": "A2",
+      "description": "Rysunek pokazuje 2xØ10 na widoku czołowym, ale nie określa głębokości ani nie pokazuje otworów w drugiej ściance.",
+      "assumption": "Otwory zamodelowano jako przelotowe w kierunku Y, przechodzące przez obie ścianki boczne ceownika.",
+      "severity": "ostrzezenie",
+      "affected_dimensions": [
+        "D6"
+      ]
+    },
+    {
+      "id": "A3",
+      "description": "Wymiar 25 określa rozstaw otworów, ale nie podaje wprost ich położenia względem środka części.",
+      "assumption": "Przyjęto symetryczne położenie otworów względem osi X=0, czyli ich środki w x=-12.5 i x=+12.5.",
+      "severity": "info",
+      "affected_dimensions": [
+        "D3"
+      ]
+    },
+    {
+      "id": "A4",
+      "description": "Nie podano oddzielnego wymiaru długości środnika w kierunku X.",
+      "assumption": "Przyjęto, że środnik ceownika ma długość równą całkowitej długości 100 mm.",
+      "severity": "info",
+      "affected_dimensions": [
+        "D12"
+      ]
+    }
+  ]
+}

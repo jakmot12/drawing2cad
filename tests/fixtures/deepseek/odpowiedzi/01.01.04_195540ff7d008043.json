@@ -1,0 +1,167 @@
+{
+  "drawing_no": "01.01.04",
+  "name": "Ośka",
+  "part_type": "toczona",
+  "operations": [
+    {
+      "op": "walec",
+      "axis": "Z",
+      "diameter": 16.0,
+      "length": 21.0,
+      "offset": 0.0,
+      "centered": true
+    },
+    {
+      "op": "walec",
+      "axis": "Z",
+      "diameter": 10.0,
+      "length": 15.0,
+      "offset": 10.5,
+      "centered": false
+    },
+    {
+      "op": "walec",
+      "axis": "Z",
+      "diameter": 10.0,
+      "length": 15.0,
+      "offset": -25.5,
+      "centered": false
+    },
+    {
+      "op": "otwor",
+      "plane": "XZ",
+      "diameter": 10.0,
+      "positions": [
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "depth": null
+    },
+    {
+      "op": "fazka",
+      "size": 1.0,
+      "angle_deg": 45.0,
+      "face_selectors": [
+        ">Z",
+        "<Z"
+      ]
+    }
+  ],
+  "dimension_bindings": [
+    {
+      "dim_id": "D1",
+      "target": "walec_srednica",
+      "expected_value": 16.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Średnica środkowego kołnierza (walca) Ø16, wysokość 21"
+    },
+    {
+      "dim_id": "D2",
+      "target": "dlugosc_odcinka",
+      "expected_value": 15.0,
+      "secondary_value": null,
+      "multiplicity": 2,
+      "thread_spec": null,
+      "description": "Długość każdego z dwóch gwintowanych czopów końcowych (15 + 21 + 15 = 51)"
+    },
+    {
+      "dim_id": "D3",
+      "target": "dlugosc_odcinka",
+      "expected_value": 21.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Wysokość środkowego kołnierza Ø16"
+    },
+    {
+      "dim_id": "D4",
+      "target": "gabaryt",
+      "expected_value": 51.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": null,
+      "description": "Całkowita długość części wzdłuż osi Z"
+    },
+    {
+      "dim_id": "D5",
+      "target": "gwint_wewnetrzny",
+      "expected_value": 10.0,
+      "secondary_value": null,
+      "multiplicity": 1,
+      "thread_spec": "M10",
+      "description": "Gwintowany otwór poprzeczny M10 przez środek kołnierza (widoczny jako podwójny okrąg)"
+    },
+    {
+      "dim_id": "D6",
+      "target": "gwint_zewnetrzny",
+      "expected_value": 10.0,
+      "secondary_value": null,
+      "multiplicity": 2,
+      "thread_spec": "M10",
+      "description": "Gwint zewnętrzny M10 na obu czopach końcowych (dwa zarysy gwintu na czopach)"
+    },
+    {
+      "dim_id": "D7",
+      "target": "fazka",
+      "expected_value": 1.0,
+      "secondary_value": 45.0,
+      "multiplicity": 2,
+      "thread_spec": null,
+      "description": "Fazka 1x45° na swobodnym końcu czopów gwintowanych"
+    }
+  ],
+  "threads": [
+    {
+      "spec": "M10",
+      "direction": "prawy",
+      "nominal_diameter": 10.0,
+      "length": null,
+      "is_internal": true,
+      "location": "otwór poprzeczny przez środkowy kołnierz Ø16 (oś prostopadła do płaszczyzny rysunku, przechodzi przez oś części)"
+    },
+    {
+      "spec": "M10",
+      "direction": "prawy",
+      "nominal_diameter": 10.0,
+      "length": 15.0,
+      "is_internal": false,
+      "location": "oba końce (czopy gwintowane) po 15 mm"
+    }
+  ],
+  "ambiguities": [
+    {
+      "id": "A1",
+      "description": "Wymiar Ø16 jest umieszczony nad czopem, a czopy są opisane jako M10 (Ø10). Przyjęto, że Ø16 dotyczy średnicy środkowego kołnierza (walca), którego zarys w widoku ma szerokość większą niż czopy; wymiar umieszczono nad częścią ze względu na brak widoku z góry.",
+      "assumption": "Środkowy kołnierz jest walcem Ø16 o wysokości 21 mm, czopy mają gwint M10 (Ø10).",
+      "severity": "ostrzezenie",
+      "affected_dimensions": [
+        "D1",
+        "D2",
+        "D6"
+      ]
+    },
+    {
+      "id": "A2",
+      "description": "Fazka 1x45° jest wskazana tylko przy dolnym końcu (pojedyncze oznaczenie), a górny czop ma identyczny ścięty zarys na rysunku.",
+      "assumption": "Fazka 1x45° występuje symetrycznie na obu swobodnych końcach czopów.",
+      "severity": "ostrzezenie",
+      "affected_dimensions": [
+        "D7"
+      ]
+    },
+    {
+      "id": "A3",
+      "description": "Położenie osiowego położenia otworu M10 nie jest zwymiarowane wzdłuż Z; otwór narysowano dokładnie w połowie wysokości kołnierza. Nie podano też, czy otwór jest przelotowy.",
+      "assumption": "Otwór M10 jest przelotowy, prostopadły do płaszczyzny rysunku i przechodzi przez oś części w połowie wysokości kołnierza (z = 0).",
+      "severity": "info",
+      "affected_dimensions": [
+        "D5",
+        "D3"
+      ]
+    }
+  ]
+}
